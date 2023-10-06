@@ -9,17 +9,18 @@ import { PokemonDto } from './api/models/pokemon-dto';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
    title = 'Banck-Api-Frontend';
-  public pokemons: PokemonDto[] = [];
-  public constructor(private api: PokemonService) {
+   public pokemon: PokemonDto | null = null;
 
-    this.api.apiPokemonGet$Json({ id: 3}).subscribe(res => {
-      this.pokemons = res;
+    constructor(private api: PokemonService) {
+
+    this.api.apiPokemonPokeIdGet$Json({ PokeId: 4}).subscribe(pokemon => {
+      this.pokemon = pokemon;
     });
   }
 }
 
-  // private endpoint = "https://localhost:7215/api/Pokemon";
 
 
   // constructor(private http: HttpClient) { }

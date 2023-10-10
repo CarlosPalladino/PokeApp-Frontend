@@ -11,17 +11,17 @@ import { PokemonDto } from './api/models/pokemon-dto';
 export class AppComponent {
   
    title = 'Banck-Api-Frontend';
-   public pokemon: PokemonDto | null = null;
+   public pokemons: PokemonDto[] = [];
 
-    constructor(private api: PokemonService) {
+   constructor(private api: PokemonService) { }
+ 
+   ngOnInit() {
+     this.api.apiPokemonGet$Json().subscribe(pokemons => {
+       this.pokemons = pokemons;
+     });
+   }
 
-    this.api.apiPokemonPokeIdGet$Json({ PokeId: 4}).subscribe(pokemon => {
-      this.pokemon = pokemon;
-    });
   }
-}
-
-
 
   // constructor(private http: HttpClient) { }
   // pokemons: Pokemons[] = [];

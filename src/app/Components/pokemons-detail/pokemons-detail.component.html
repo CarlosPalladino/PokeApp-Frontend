@@ -1,1 +1,9 @@
 <p>pokemons-detail works!</p>
+
+<div>
+    *ngFor="let pokemon of pokemons pokemons"
+    <p>{{pokemon.name}}</p>
+    <img [src]="pokemon.image" class="img" alt="{{ pokemon.name }}">
+
+    <!-- <p>{{pokemon.bi}}</p> -->
+</div>

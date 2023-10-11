@@ -1,16 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// import { PokemonsComponent } from './Components/pokemons/pokemons.component';
-import { AppComponent } from './app.component';
- import { PokemonsDetailComponent } from './Components/pokemons-detail/pokemons-detail.component';
-// import  {test } from './Components/test/'
+import { PokemonsDetailComponent } from './Components/pokemons-detail/pokemons-detail.component';
+import { AllPokemonsComponent } from './Components/all-pokemons/all-pokemons.component';
 
 
 
 const routes: Routes = [
-  { path: 'home', component: AppComponent },
-  // { path:'Pokemon', component: PokemonsComponent}
-  { path: 'PokemonsDetailComponent', component: PokemonsDetailComponent },
+  {
+    
+    path: '', 
+    component: AllPokemonsComponent 
+  },
+
+  { 
+    
+    path: 'details-pokemon', 
+    component: PokemonsDetailComponent 
+  
+  },
+
+
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

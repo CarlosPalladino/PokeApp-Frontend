@@ -11,7 +11,10 @@ const routes: Routes = [
     path: '', 
     component: AllPokemonsComponent 
   },
-
+  { 
+    path: 'all-pokemons', 
+    component: AllPokemonsComponent 
+  },
   { 
     
     path: 'details-pokemon/:id', 

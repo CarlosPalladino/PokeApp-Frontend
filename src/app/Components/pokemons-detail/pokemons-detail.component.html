@@ -1,6 +1,16 @@
-<p>pokemons-detail works!</p>
+<div *ngIf="pokemon">
+    <article class="details">
 
-<div *ngIf="pokemon"> 
-    <p>{{pokemon.name}}</p>
-    <img [src]="pokemon.image" class="img" alt="{{ pokemon.name }}">
+        <img [src]="pokemon.image" class="img" alt="{{ pokemon.name }}">
+        <p class="card-text"> Nombre</p>
+        <p class="card-texts"> {{pokemon.name}}</p>
+        <p class="card-text"> TIpo</p>
+        
+        <p class="card-texts">{{pokemon.tipo}}</p>
+        <p class="card-text"> debilidad</p>
+        
+        <p class="card-texts">{{pokemon.debilidad}}</p>
+        
+        <a routerLink="/all-pokemons" class="btn btn-sm btn-outline-primary">detalle</a>
+    </article>
 </div>

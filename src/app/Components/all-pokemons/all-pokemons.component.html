@@ -157,12 +157,23 @@ de hacerlo internamente por vos
             <div class="card shadow-sm">
               <div class="card-body">
                 <img [src]="pokemon.image" class="img" alt="{{ pokemon.name }}">
-                <p class="card-text">{{pokemon.name}}</p>
+                <section class="details">
+
+                  <p class="card-text"> Nombre</p>
+                  <p class="card-texts"> {{pokemon.name}}</p>
+                  <p class="card-text"> TIpo</p>
+
+                  <p class="card-texts">{{pokemon.tipo}}</p>
+                  <p class="card-text"> debilidad</p>
+
+                  <p class="card-texts">{{pokemon.debilidad}}</p>
+
+                </section>
 
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <a [routerLink]="['/details-pokemon', pokemon.id]" 
-                    class="btn btn-sm btn-outline-primary">detalle</a>
+                    <a [routerLink]="['/details-pokemon', pokemon.id]"
+                      class="btn btn-sm btn-outline-primary">detalle</a>
 
                   </div>
                 </div>
@@ -181,8 +192,7 @@ de hacerlo internamente por vos
                 <p class="card-text"></p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <a [routerLink]="['/details-pokemon',pokemon.id]"
-                     class="btn btn-sm btn-outline-primary">detalle</a>
+                    <a [routerLink]="['/details-pokemon',pokemon.id]" class="btn btn-sm btn-outline-primary">detalle</a>
                   </div>
                 </div>
               </div>
@@ -202,7 +212,7 @@ de hacerlo internamente por vos
                   <div class="btn-group">
                     <a routerLink="/details-pokemon" class="btn btn-sm btn-outline-primary">detalle</a>
 
-                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -220,7 +230,8 @@ de hacerlo internamente por vos
                 <!-- <p class="card-text">{}</p> -->
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <a type="button" href="../pokemons-detail/pokemons-detail.component.html" class="btn btn-sm btn-outline-primary">detalle</a>
+                    <a type="button" href="../pokemons-detail/pokemons-detail.component.html"
+                      class="btn btn-sm btn-outline-primary">detalle</a>
 
                     <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                   </div>
@@ -229,7 +240,7 @@ de hacerlo internamente por vos
               </div>
             </div>
           </div>
-          <div class="col">
+          <!-- <div class="col">
             <div class="card shadow-sm">
               <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
                 role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -241,16 +252,17 @@ de hacerlo internamente por vos
                 <p class="card-text">.</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <a type="button" href="../pokemons-detail/pokemons-detail.component.html" class="btn btn-sm btn-outline-primary">detalle</a>
+                    <a type="button" href="../pokemons-detail/pokemons-detail.component.html"
+                      class="btn btn-sm btn-outline-primary">detalle</a>
                   </div>
                   <small class="text-body-secondary">9 mins</small>
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
 
-          <div class="col">
+          <!-- <div class="col">
             <div class="card shadow-sm">
               <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
                 role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -268,8 +280,8 @@ de hacerlo internamente por vos
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col">
+          </div> -->
+          <!-- <div class="col">
             <div class="card shadow-sm">
               <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
                 role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -289,8 +301,8 @@ de hacerlo internamente por vos
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col">
+          </div> -->
+          <!-- <div class="col">
             <div class="card shadow-sm">
               <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
                 role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -310,7 +322,7 @@ de hacerlo internamente por vos
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

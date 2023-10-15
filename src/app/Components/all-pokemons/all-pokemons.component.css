@@ -1,3 +1,25 @@
-.img{
-    width: 300px; height: 300px;
+.img {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+}
+
+.details {
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+
+.card-text {
+    text-decoration: dotted;
+    background-color: gray !important;
+    text-decoration: dotted;
+    border-radius: 5px;
+
+}
+
+.card-texts {
+    text-decoration: dotted;
+    border-radius: 5px;
+
 }

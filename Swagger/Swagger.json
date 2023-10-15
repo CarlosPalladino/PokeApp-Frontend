@@ -3,8 +3,7 @@
   "info": {
     "title": "PokemonReviewAppp",
     "version": "1.0"
-  },
-  "server": {
+  },"server": {
     "url" :"https://localhost:7215"
   },
   "paths": {
@@ -2184,6 +2183,14 @@
           "image": {
             "type": "string",
             "nullable": true
+          },
+          "tipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "debilidad": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2224,6 +2231,14 @@
             "format": "date-time"
           },
           "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "debilidad": {
             "type": "string",
             "nullable": true
           },

@@ -7,6 +7,7 @@ import { OwnersComponent } from './Components/owners/owners.component';
 import { TestComponent } from './Components/test/test.component';
 import { PokemonsDetailComponent } from './Components/pokemons-detail/pokemons-detail.component';
 import { AllPokemonsComponent } from './Components/all-pokemons/all-pokemons.component';
+import { CreatePokemonsComponent } from './Components/create-pokemons/create-pokemons.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AllPokemonsComponent } from './Components/all-pokemons/all-pokemons.com
     OwnersComponent,
     TestComponent,
     PokemonsDetailComponent,
-    AllPokemonsComponent
+    AllPokemonsComponent,
+    CreatePokemonsComponent
     
   ],
   imports: [

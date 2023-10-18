@@ -8,6 +8,7 @@ import { TestComponent } from './Components/test/test.component';
 import { PokemonsDetailComponent } from './Components/pokemons-detail/pokemons-detail.component';
 import { AllPokemonsComponent } from './Components/all-pokemons/all-pokemons.component';
 import { CreatePokemonsComponent } from './Components/create-pokemons/create-pokemons.component';
+import { HeaderComponent } from './Components/Header/header/header.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { CreatePokemonsComponent } from './Components/create-pokemons/create-pok
     TestComponent,
     PokemonsDetailComponent,
     AllPokemonsComponent,
-    CreatePokemonsComponent
+    CreatePokemonsComponent,
+    HeaderComponent
     
   ],
   imports: [

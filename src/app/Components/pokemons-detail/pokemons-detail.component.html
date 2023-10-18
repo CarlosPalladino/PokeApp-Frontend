@@ -10,7 +10,13 @@
         <p class="card-text"> debilidad</p>
         
         <p class="card-texts">{{pokemon.debilidad}}</p>
-        
-        <a routerLink="/all-pokemons" class="btn btn-sm btn-outline-primary">detalle</a>
+
+        <article id="buttons">
+            <button (click)="eliminarPokemon()" 
+            class="btn btn-danger">Eliminar</button>
+            <a routerLink="/create-pokemons" class="btn btn-warning"> Modficar</a>
+
+        </article>
+
     </article>
 </div>

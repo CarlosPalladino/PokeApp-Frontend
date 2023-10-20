@@ -14,7 +14,7 @@
         <article id="buttons">
             <button (click)="eliminarPokemon()" 
             class="btn btn-danger">Eliminar</button>
-            <a routerLink="/create-pokemons" class="btn btn-warning"> Modficar</a>
+            <a [routerLink]="['/create-pokemons', pokemon.id]" class="btn btn-warning"> Modificar</a>
 
         </article>
 

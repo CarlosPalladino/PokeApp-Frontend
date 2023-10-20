@@ -7,7 +7,7 @@ import { PokemonDto } from '../../api/models/pokemon-dto';
   templateUrl: '../../Components/all-pokemons/all-pokemons.component.html',
   styleUrls: ['../../Components/all-pokemons/all-pokemons.component.css']
 })
-export class AllPokemonsComponent {  // Cambia 'AllComponents' a 'AllPokemonsComponent'
+export class AllPokemonsComponent { 
   
    title = 'Banck-Api-Frontend';
    public pokemons: PokemonDto[] = [];

@@ -39,6 +39,22 @@ export class CategoryService extends BaseService {
   /** Path part for operation `apiCategoryGet()` */
   static readonly ApiCategoryGetPath = '/api/Category';
 
+
+
+// obtener el nombre de la category 
+
+
+getCategoryIdByName(name: string): Observable<number> {
+  return this.http.get(`/api/categories`).pipe(
+    map(response => response as any[]),
+    map((categories: any[]) => {
+      const category = categories.find(category => category.name === name);
+      return category ? category.id : null;
+    })
+  );
+}
+
+
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiCategoryGet$Plain()` instead.

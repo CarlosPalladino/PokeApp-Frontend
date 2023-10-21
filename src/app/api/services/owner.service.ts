@@ -38,6 +38,19 @@ export class OwnerService extends BaseService {
   /** Path part for operation `apiOwnerGet()` */
   static readonly ApiOwnerGetPath = '/api/Owner';
 
+
+  // obtener nombre del owner
+
+  getOwnerIdByName(name: string): Observable<number> {
+    return this.http.get(`/api/owners`).pipe(
+      map(response => response as any[]),
+      map((owners: any[]) => {
+        const owner = owners.find(owner => owner.firstName === name);
+        return owner ? owner.id : null;
+      })
+    );
+  }
+
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiOwnerGet$Plain()` instead.

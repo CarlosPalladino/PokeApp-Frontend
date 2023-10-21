@@ -21,15 +21,18 @@ export class CreatePokemonsComponent implements OnInit, AfterViewInit {
   @ViewChild('form') form!: NgForm;
   owners: Array<OwnerDto> = []; // Añade esta línea
   categories: Array<CategoriesDto> = []; // Añade esta línea
-  tipos: string[] = [''];
-  debilidades: string[] = [''];
+  tipos: string[] = []; // Cambia 'string' a 'string[]'
+  debilidades: string[] = []; // Cambia 'string' a 'string[]'
   ownerName: string = ''; // Añade esta línea
   categoryName: string = ''; // Añade esta línea
 
   constructor(private api: PokemonService,
     private route: ActivatedRoute,
     private ownerService: OwnerService,
-    private categoryService: CategoryService) { }
+    private categoryService: CategoryService)
+    { } 
+    
+    
 
 
   ngOnInit() { 
@@ -42,15 +45,22 @@ export class CreatePokemonsComponent implements OnInit, AfterViewInit {
     });
 
 
-    this.api.apiPokemonGet$Json().subscribe(pokemon => {
-      this.tipos = [...new Set(pokemon.map(p => p.tipo)
-        ?.filter(tipo => tipo))];
-      this.debilidades = [...new Set(pokemon.map(p => p.debilidad)
-        ?.filter(debilidad => debilidad))];
+    this.api.getAllTipos().subscribe(tipos => {
+      console.log(tipos); // Añade esta línea
+
+      this.tipos = tipos;
     });
-    
-    
+
+    this.api.getAllDebilidades().subscribe(debilidades => {
+      console.log(debilidades); // Añade esta línea
+
+      this.debilidades = debilidades;
+    });
+  
+
+
   }
+
 ngAfterViewInit() {
   const pokeId = this.route.snapshot.paramMap.get('id');
   console.log(pokeId);

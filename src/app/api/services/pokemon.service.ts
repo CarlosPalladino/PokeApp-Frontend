@@ -28,6 +28,7 @@ import { ApiPokemonPokemonIdPut$Params } from '../fn/pokemon/api-pokemon-pokemon
 import { apiPokemonPost } from '../fn/pokemon/api-pokemon-post';
 import { ApiPokemonPost$Params } from '../fn/pokemon/api-pokemon-post';
 import { Pokemons } from '../models/pokemons';
+import { PokemonDto } from '../models';
 
 @Injectable({ providedIn: 'root' })
 export class PokemonService extends BaseService {
@@ -43,6 +44,37 @@ export class PokemonService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
+
+
+//retorna todas los tipos 
+getAllTipos(): Observable<string[]> {
+  return this.apiPokemonGet$Json().pipe(
+    map((pokemon: Array<PokemonDto>) => {
+      // Extrae todos los tipos de cada Pokémon que no sean nulas ni indefinidas
+      const tipos = pokemon
+        .map(p => p.tipo)
+        .filter((tipo): tipo is string => tipo !== null && tipo !== undefined);
+      // Elimina duplicados
+      return [...new Set(tipos)];
+    })
+  );
+}
+
+
+// retorna todas las deblidades 
+getAllDebilidades(): Observable<string[]> {
+  return this.apiPokemonGet$Json().pipe(
+    map((pokemon: Array<PokemonDto>) => {
+      // Extrae todas las debilidades de cada Pokémon que no sean nulas ni indefinidas
+      const debilidades = pokemon
+        .map(p => p.debilidad)
+        .filter((debilidad): debilidad is string => debilidad !== null && debilidad !== undefined);
+      // Elimina duplicados
+      return [...new Set(debilidades)];
+    })
+  );
+}
+
   apiPokemonGet$Plain$Response(params?: ApiPokemonGet$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<Pokemons>>> {
     return apiPokemonGet$Plain(this.http, this.rootUrl, params, context);
   }

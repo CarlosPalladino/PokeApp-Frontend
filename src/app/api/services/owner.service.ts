@@ -1,5 +1,4 @@
-/* tslint:disable */
-/* eslint-disable */
+
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -34,22 +33,20 @@ export class OwnerService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
   }
-
   /** Path part for operation `apiOwnerGet()` */
   static readonly ApiOwnerGetPath = '/api/Owner';
-
-
+  
   // obtener nombre del owner
+getOwnerIdByName(name: string): Observable<number> {
+  return this.http.get(`/api/Owner`).pipe(
+    map(response => response as any[]),
+    map((owners: any[]) => {
+      const owner = owners.find(owner => owner.firstName === name);
+      return owner ? owner.id : null;
+    })
+  ); 
+}
 
-  getOwnerIdByName(name: string): Observable<number> {
-    return this.http.get(`/api/owners`).pipe(
-      map(response => response as any[]),
-      map((owners: any[]) => {
-        const owner = owners.find(owner => owner.firstName === name);
-        return owner ? owner.id : null;
-      })
-    );
-  }
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.

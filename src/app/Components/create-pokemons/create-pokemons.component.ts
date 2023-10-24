@@ -19,12 +19,13 @@ import { CategoryService } from '../../api/services';
 export class CreatePokemonsComponent implements OnInit, AfterViewInit {
   pokemon: PokemonDto = {} as PokemonDto;
   @ViewChild('form') form!: NgForm;
-  owners: Array<OwnerDto> = []; // Añade esta línea
-  categories: Array<CategoriesDto> = []; // Añade esta línea
-  tipos: string[] = []; // Cambia 'string' a 'string[]'
-  debilidades: string[] = []; // Cambia 'string' a 'string[]'
-  ownerName: string = ''; // Añade esta línea
-  categoryName: string = ''; // Añade esta línea
+  owners: Array<OwnerDto> = []; 
+  categories: Array<CategoriesDto> = []; 
+  tipos: string[] = []; 
+  debilidades: string[] = []; 
+  ownerName: string = ''; 
+  categoryName: string = ''; 
+  imagen: File | null = null;
 
   constructor(private api: PokemonService,
     private route: ActivatedRoute,
@@ -33,7 +34,11 @@ export class CreatePokemonsComponent implements OnInit, AfterViewInit {
     { } 
     
     
-
+    onFileChange(event: any) {
+      if (event.target.files && event.target.files.length) {
+        this.imagen = event.target.files[0];
+      }
+    }
 
   ngOnInit() { 
     this.ownerService.apiOwnerGet$Json().subscribe(owners => {
@@ -56,9 +61,6 @@ export class CreatePokemonsComponent implements OnInit, AfterViewInit {
 
       this.debilidades = debilidades;
     });
-  
-
-
   }
 
 ngAfterViewInit() {
@@ -80,6 +82,9 @@ ngAfterViewInit() {
   }
 }
   onSubmit() {
+
+ 
+
     this.ownerService.getOwnerIdByName(this.ownerName).subscribe(ownerId => {
       this.categoryService.getCategoryIdByName(this.categoryName)
       .subscribe(categoryId => { 
@@ -94,5 +99,13 @@ ngAfterViewInit() {
         });
       });
     });
+    console.log(this.ownerName); 
+    console.log(this.categoryName); 
+  
   }
+
+
+
+
+
 }

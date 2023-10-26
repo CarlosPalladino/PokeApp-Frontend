@@ -39,14 +39,14 @@ export class CategoryService extends BaseService {
   static readonly ApiCategoryGetPath = '/api/Category';
 
 // obtener el nombre de la category 
-getCategoryIdByName(name: string): Observable<number> {
-  return this.http.get(`/api/Category`).pipe(
-    map(response => response as any[]),
-    map((categories: any[]) => {
+getCategoryIdByName(name: string): Observable<number | null> {
+  return this.apiCategoryGet$Json().pipe(
+    map((categories: Category[]) => {
       const category = categories.find(category => category.name === name);
       return category ? category.id : null;
-    })
-  );
+    }),
+    map(id => id !== undefined ? id : null)
+  ); 
 }
 
   /**

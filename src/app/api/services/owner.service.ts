@@ -35,17 +35,19 @@ export class OwnerService extends BaseService {
   }
   /** Path part for operation `apiOwnerGet()` */
   static readonly ApiOwnerGetPath = '/api/Owner';
-  
+
   // obtener nombre del owner
-getOwnerIdByName(name: string): Observable<number> {
-  return this.http.get(`/api/Owner`).pipe(
-    map(response => response as any[]),
-    map((owners: any[]) => {
-      const owner = owners.find(owner => owner.firstName === name);
-      return owner ? owner.id : null;
-    })
-  ); 
-}
+  getOwnerIdByName(name: string): Observable<number | null> {
+    return this.apiOwnerGet$Json().pipe(
+      map((owners: Owner[]) => {
+        const owner = owners.find(owner => owner.firstName === name);
+        return owner ? owner.id : null;
+      }),
+      map(id => id !== undefined ? id : null)
+    ); 
+  }
+  
+
 
 
   /**

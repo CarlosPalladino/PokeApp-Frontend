@@ -14,7 +14,9 @@ export interface ApiPokemonPost$Params {
       body?: PokemonDto
 }
 
-export function apiPokemonPost(http: HttpClient, rootUrl: string, params?: ApiPokemonPost$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+export function apiPokemonPost(http: HttpClient, rootUrl: string, params?: 
+  ApiPokemonPost$Params, context?: HttpContext):
+   Observable<StrictHttpResponse<void>> {
   const rb = new RequestBuilder(rootUrl, apiPokemonPost.PATH, 'post');
   if (params) {
     rb.query('ownerId', params.ownerId, {});

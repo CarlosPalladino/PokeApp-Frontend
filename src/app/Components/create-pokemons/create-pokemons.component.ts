@@ -24,6 +24,8 @@ export class CreatePokemonsComponent implements OnInit, AfterViewInit {
   tipos: string[] = [];
   debilidades: string[] = [];
   ownerName: string = '';
+  ownerId: number | undefined;
+  categoryId: number | undefined;
   categoryName: string = '';
   imagen: File | null = null;
 
@@ -81,41 +83,53 @@ export class CreatePokemonsComponent implements OnInit, AfterViewInit {
     }
   }
   onSubmit() {
-    this.ownerService.getOwnerIdByName(this.ownerName).subscribe(ownerId => {
-      console.log('ownerId:', ownerId);
-      if (ownerId === null) {
-        Swal.fire('Error', 'No se encontró el propietario.', 'error');
-        return;
-      }
+    if (this.ownerService && this.ownerName) {
+      this.ownerService.getOwnerIdByName(this.ownerName).subscribe(id => {
+        if (id === null) {
+          Swal.fire('Error', 'No se encontró el propietario.', 'error');
+          return;
+        }
+        this.ownerId = id;
   
-      this.categoryService.getCategoryIdByName(this.categoryName)
-        .subscribe(categoryId => {
-          console.log('categoryId:', categoryId);
-          if (categoryId === null) {
-            Swal.fire('Error', 'No se encontró la categoría.', 'error');
-            return;
-          }
+        if (this.categoryService && this.categoryName) {
+          this.categoryService.getCategoryIdByName(this.categoryName).subscribe(id => {
+            if (id === null) {
+              Swal.fire('Error', 'No se encontró la categoría.', 'error');
+              return;
+            }
   
-          console.log('pokemon:', this.pokemon);
-          this.api.apiPokemonPost({ ownerId: ownerId, categoryId: categoryId, body: this.pokemon })
-            .subscribe(() => {
-              Swal.fire('¡Éxito!', 'Pokémon creado con éxito.', 'success');
-            },
-            error => {
-              console.log('error completo:', error);
-              Swal.fire('Error', 'Hubo un error al crear el Pokémon.', 'error');
-            });
-        });
-    });
+            this.categoryId = id;
+            if (this.api && this.ownerId && this.categoryId && this.pokemon) {
+              
+              this.api.apiPokemonPost({
+                ownerId: this.ownerId,
+                categoryId: this.categoryId, body: this.pokemon
+              })
+                .subscribe(() => {
+                  Swal.fire('¡Éxito!', 'Pokémon creado con éxito.', 'success');
+                },
+                  error => {
+                    console.log('Datos enviados:', { ownerId: this.ownerId, categoryId: this.categoryId, body: this.pokemon });
+                    console.log('Error:', error);
+                    console.log('Mensaje de error:', error.message);
+                    console.log('Estado del error:', error.status);
+                    Swal.fire('Error', 'Hubo un error al crear el Pokémon.', 'error');
+                  });
+            }
+          });
+        }
+      });
+    }
   }
   
 
-  }
-  
-  
+
+}
 
 
-  
+
+
+
 
 
 

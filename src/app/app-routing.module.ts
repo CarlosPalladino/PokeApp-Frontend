@@ -26,10 +26,6 @@ component :CreatePokemonsComponent
     component: PokemonsDetailComponent 
   
   },
-  { 
-    path: 'create-pokemons/:id',  
-    component: CreatePokemonsComponent
-  }
 
 ]
 @NgModule({

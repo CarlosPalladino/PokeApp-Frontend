@@ -38,12 +38,6 @@ export class PokemonService extends BaseService {
 
   /** Path part for operation `apiPokemonGet()` */
   static readonly ApiPokemonGetPath = '/api/Pokemon';
-  /**
-   * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiPokemonGet$Plain()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
 
 
 //retorna todas los tipos 
@@ -75,9 +69,22 @@ getAllDebilidades(): Observable<string[]> {
   );
 }
 
+
+
+
+
+
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiPokemonGet$Plain()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
   apiPokemonGet$Plain$Response(params?: ApiPokemonGet$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<Pokemons>>> {
     return apiPokemonGet$Plain(this.http, this.rootUrl, params, context);
   }
+
   /**
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiPokemonGet$Plain$Response()` instead.
@@ -99,6 +106,7 @@ getAllDebilidades(): Observable<string[]> {
   apiPokemonGet$Json$Response(params?: ApiPokemonGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<Pokemons>>> {
     return apiPokemonGet$Json(this.http, this.rootUrl, params, context);
   }
+
   /**
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiPokemonGet$Json$Response()` instead.
@@ -110,8 +118,10 @@ getAllDebilidades(): Observable<string[]> {
       map((r: StrictHttpResponse<Array<Pokemons>>): Array<Pokemons> => r.body)
     );
   }
+
   /** Path part for operation `apiPokemonPost()` */
   static readonly ApiPokemonPostPath = '/api/Pokemon';
+
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiPokemonPost()` instead.
@@ -121,6 +131,7 @@ getAllDebilidades(): Observable<string[]> {
   apiPokemonPost$Response(params?: ApiPokemonPost$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
     return apiPokemonPost(this.http, this.rootUrl, params, context);
   }
+
   /**
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiPokemonPost$Response()` instead.
@@ -135,6 +146,7 @@ getAllDebilidades(): Observable<string[]> {
 
   /** Path part for operation `apiPokemonPokeIdGet()` */
   static readonly ApiPokemonPokeIdGetPath = '/api/Pokemon/{PokeId}';
+
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiPokemonPokeIdGet$Plain()` instead.
@@ -144,6 +156,7 @@ getAllDebilidades(): Observable<string[]> {
   apiPokemonPokeIdGet$Plain$Response(params: ApiPokemonPokeIdGet$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<Pokemons>> {
     return apiPokemonPokeIdGet$Plain(this.http, this.rootUrl, params, context);
   }
+
   /**
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiPokemonPokeIdGet$Plain$Response()` instead.
@@ -155,6 +168,7 @@ getAllDebilidades(): Observable<string[]> {
       map((r: StrictHttpResponse<Pokemons>): Pokemons => r.body)
     );
   }
+
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiPokemonPokeIdGet$Json()` instead.
@@ -164,11 +178,6 @@ getAllDebilidades(): Observable<string[]> {
   apiPokemonPokeIdGet$Json$Response(params: ApiPokemonPokeIdGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<Pokemons>> {
     return apiPokemonPokeIdGet$Json(this.http, this.rootUrl, params, context);
   }
-
-
-// me devuelve la lista de los tipos de los pokemons
-
-
 
   /**
    * This method provides access only to the response body.
@@ -194,6 +203,7 @@ getAllDebilidades(): Observable<string[]> {
   apiPokemonPokeIdRatingGet$Plain$Response(params: ApiPokemonPokeIdRatingGet$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<number>> {
     return apiPokemonPokeIdRatingGet$Plain(this.http, this.rootUrl, params, context);
   }
+
   /**
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiPokemonPokeIdRatingGet$Plain$Response()` instead.
@@ -205,6 +215,7 @@ getAllDebilidades(): Observable<string[]> {
       map((r: StrictHttpResponse<number>): number => r.body)
     );
   }
+
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiPokemonPokeIdRatingGet$Json()` instead.
@@ -214,6 +225,7 @@ getAllDebilidades(): Observable<string[]> {
   apiPokemonPokeIdRatingGet$Json$Response(params: ApiPokemonPokeIdRatingGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<number>> {
     return apiPokemonPokeIdRatingGet$Json(this.http, this.rootUrl, params, context);
   }
+
   /**
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiPokemonPokeIdRatingGet$Json$Response()` instead.
@@ -225,8 +237,10 @@ getAllDebilidades(): Observable<string[]> {
       map((r: StrictHttpResponse<number>): number => r.body)
     );
   }
+
   /** Path part for operation `apiPokemonPokemonIdPut()` */
   static readonly ApiPokemonPokemonIdPutPath = '/api/Pokemon/{pokemonId}';
+
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiPokemonPokemonIdPut()` instead.
@@ -236,6 +250,7 @@ getAllDebilidades(): Observable<string[]> {
   apiPokemonPokemonIdPut$Response(params: ApiPokemonPokemonIdPut$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
     return apiPokemonPokemonIdPut(this.http, this.rootUrl, params, context);
   }
+
   /**
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `apiPokemonPokemonIdPut$Response()` instead.
@@ -247,8 +262,10 @@ getAllDebilidades(): Observable<string[]> {
       map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
+
   /** Path part for operation `apiPokemonPokemonIdDelete()` */
   static readonly ApiPokemonPokemonIdDeletePath = '/api/Pokemon/{pokemonId}';
+
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiPokemonPokemonIdDelete()` instead.
@@ -272,5 +289,3 @@ getAllDebilidades(): Observable<string[]> {
   }
 
 }
-
-export { apiPokemonPost, apiPokemonPokemonIdPut };

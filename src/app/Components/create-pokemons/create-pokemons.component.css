@@ -13,6 +13,7 @@ body {
     background-color: gray !important;
     padding: 20px;
     border-radius: 10px;
+    height: 120vh;;
   }
   
   .form label {

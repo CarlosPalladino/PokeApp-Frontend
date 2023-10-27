@@ -1,4 +1,5 @@
-
+/* tslint:disable */
+/* eslint-disable */
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -33,10 +34,13 @@ export class OwnerService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
   }
+
   /** Path part for operation `apiOwnerGet()` */
   static readonly ApiOwnerGetPath = '/api/Owner';
 
-  // obtener nombre del owner
+
+
+
   getOwnerIdByName(name: string): Observable<number | null> {
     return this.apiOwnerGet$Json().pipe(
       map((owners: Owner[]) => {
@@ -46,7 +50,10 @@ export class OwnerService extends BaseService {
       map(id => id !== undefined ? id : null)
     ); 
   }
-  
+
+
+
+
 
 
 

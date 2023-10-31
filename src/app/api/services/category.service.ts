@@ -40,16 +40,27 @@ export class CategoryService extends BaseService {
   static readonly ApiCategoryGetPath = '/api/Category';
 
 
-  getCategoryIdByName(name: string): Observable<number | null> {
+  // getCategoryByName(name: string): Observable<Category | null> {
+  //   return this.apiCategoryGet$Json().pipe(
+  //     map((categories: Category[]) => {
+  //       const category = categories.find(category => category.name === name);
+  //       return category ? category : null;
+  //     })
+  //   ); 
+  // }
+  
+
+
+  
+  getCategoryById(id: number): Observable<Category | null> {
     return this.apiCategoryGet$Json().pipe(
       map((categories: Category[]) => {
-        const category = categories.find(category => category.name === name);
-        return category ? category.id : null;
-      }),
-      map(id => id !== undefined ? id : null)
+        const category = categories.find(category => category.id === id);
+        return category ? category : null;
+      })
     ); 
   }
-  
+
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiCategoryGet$Plain()` instead.

@@ -8,23 +8,23 @@ import { CreatePokemonsComponent } from './Components/create-pokemons/create-pok
 
 const routes: Routes = [
   {
-    
-    path: '', 
-    component: AllPokemonsComponent 
+
+    path: '',
+    component: AllPokemonsComponent
   },
   {
-path: 'create-pokemons',  
-component :CreatePokemonsComponent
+    path: 'create-pokemons',
+    component: CreatePokemonsComponent
   },
-  { 
-    path: 'all-pokemons', 
-    component: AllPokemonsComponent 
+  {
+    path: 'all-pokemons',
+    component: AllPokemonsComponent
   },
-  { 
-    
-    path: 'details-pokemon/:id', 
-    component: PokemonsDetailComponent 
-  
+  {
+
+    path: 'details-pokemon/:id',
+    component: PokemonsDetailComponent
+
   },
 
 ]

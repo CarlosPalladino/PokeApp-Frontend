@@ -6,8 +6,8 @@ import { OwnerDto } from '../../api/models/owner-dto';
 import Swal from 'sweetalert2';
 import { PokemonService } from '../../api/services';
 import { NgForm } from '@angular/forms';
-import { OwnerService } from '../../api/services';
-import { CategoryService } from '../../api/services';
+import { OwnerService } from '../../api/services/owner.service';
+import { CategoryService } from '../../api/services/category.service';
 
 // Asegúrate de importar OwnerService
 
@@ -35,11 +35,15 @@ export class CreatePokemonsComponent implements OnInit, AfterViewInit {
     private categoryService: CategoryService) { }
 
 
-  onFileChange(event: any) {
-    if (event.target.files && event.target.files.length) {
-      this.imagen = event.target.files[0];
+    onFileChange(event: any) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.pokemon.image = reader.result as string;
+      };
     }
-  }
+    
 
   ngOnInit() {
     this.ownerService.apiOwnerGet$Json().subscribe(owners => {
@@ -83,56 +87,41 @@ export class CreatePokemonsComponent implements OnInit, AfterViewInit {
     }
   }
   onSubmit() {
-    if (this.ownerService && this.ownerName) {
-      this.ownerService.getOwnerIdByName(this.ownerName).subscribe(id => {
-        if (id === null) {
-          Swal.fire('Error', 'No se encontró el propietario.', 'error');
+    console.log('pokemon:', this.pokemon);
+  
+    if (this.ownerId === undefined || this.categoryId === undefined) {
+      Swal.fire('Error', 'El ID del propietario o la categoría no está definido.', 'error');
+      return;
+    }
+  
+    this.ownerService.getOwnerById(this.ownerId).subscribe(owner => {
+      if (owner === null) {
+        Swal.fire('Error', 'No se encontró el propietario.', 'error');
+        return;
+      }
+      if (this.categoryId === undefined) {
+        Swal.fire('Error', 'El ID de la categoría no está definido.', 'error');
+        return;
+      }
+      this.categoryService.getCategoryById(this.categoryId).subscribe(category => {
+        if (category === null) {
+          Swal.fire('Error', 'No se encontró la categoría.', 'error');
           return;
         }
-        this.ownerId = id;
-  
-        if (this.categoryService && this.categoryName) {
-          this.categoryService.getCategoryIdByName(this.categoryName).subscribe(id => {
-            if (id === null) {
-              Swal.fire('Error', 'No se encontró la categoría.', 'error');
-              return;
-            }
-  
-            this.categoryId = id;
-            if (this.api && this.ownerId && this.categoryId && this.pokemon) {
-              
-              this.api.apiPokemonPost({
-                ownerId: this.ownerId,
-                categoryId: this.categoryId, body: this.pokemon
-              })
-                .subscribe(() => {
-                  Swal.fire('¡Éxito!', 'Pokémon creado con éxito.', 'success');
-                },
-                  error => {
-                    console.log('Datos enviados:', { ownerId: this.ownerId, categoryId: this.categoryId, body: this.pokemon });
-                    console.log('Error:', error);
-                    console.log('Mensaje de error:', error.message);
-                    console.log('Estado del error:', error.status);
-                    Swal.fire('Error', 'Hubo un error al crear el Pokémon.', 'error');
-                  });
-            }
+    
+        this.api.apiPokemonPost({ ownerId: owner.id, categoryId: category.id, body: this.pokemon })
+          .subscribe(() => {
+            Swal.fire('¡Éxito!', 'Pokémon creado con éxito.', 'success');
+          },
+          error => {
+            console.log('error completo:', error);
+            Swal.fire('Error', 'Hubo un error al crear el Pokémon.', 'error');
           });
-        }
       });
-    }
+    });
   }
   
-
-
+  
+  
 }
-
-
-
-
-
-
-
-
-
-
 

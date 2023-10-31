@@ -5,23 +5,37 @@
     <label for="fecha_nacimiento">Fecha de nacimiento:</label>
     <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" [(ngModel)]="pokemon.birthDate" required><br><br>
     <label for="tipo">Tipo:</label>
-    <select id="tipo" name="tipo" [(ngModel)]="pokemon.tipo">
+    <!-- <select id="tipo" name="tipo" [(ngModel)]="pokemon.tipo">
       <option *ngFor="let tipo of tipos" [value]="tipo">{{tipo}}</option>
-    </select><br><br>
+    </select><br><br> -->
+
+    <input type="text" id="tipo" name="tipo" 
+    [(ngModel)]="pokemon.tipo" required><br><br>
     <label for="debilidad">Debilidad:</label>
-    <select id="debilidad" name="debilidad" [(ngModel)]="pokemon.debilidad">
+    <!-- <select id="debilidad" name="debilidad" [(ngModel)]="pokemon.debilidad">
       <option *ngFor="let deb of debilidades" [value]="deb">{{deb}}</option> 
-    </select><br><br>
-    <label for="ownerName">Nombre del propietario:</label>
-    <select id="ownerName" name="ownerName" [(ngModel)]="ownerName" required>
-      <option *ngFor="let owner of owners" [value]="owner.firstName">{{owner.firstName}}</option>
+    </select><br><br> -->
+    <input type="text" id="debilidad" name="debilidad"
+     [(ngModel)]="pokemon.debilidad" required><br><br>
+
+   <label for="ownerId">Nombre del propietario:</label>
+    <!-- <select id="ownerName" name="ownerName" [(ngModel)]="ownerName" required> -->
+      <!-- <option *ngFor="let owner of owners" [value]="owner.firstName">{{owner.firstName}}</option>
     </select>
     <br><br>
-    <label for="categoryName">Nombre de la categoría:</label>
-    <select id="categoryName" name="categoryName" [(ngModel)]="categoryName" required>
+     -->
+     <input type="number" id="ownerId" name="ownerId"
+      [(ngModel)]="ownerId" required><br><br>
+    <!-- <label for="categoryName">Nombre de la categoría:</label> -->
+    <!-- <select id="categoryName" name="categoryName" [(ngModel)]="categoryName" required>
       <option *ngFor="let category of categories" [value]="category.name">{{category.name}}</option>
     </select>
-    <br><br>
+    <br><br> -->
+  <label for="categoryId">ID de la categoría:</label>
+
+    <input type="number" id="categoryId" name="categoryId" 
+    [(ngModel)]="categoryId" required><br><br>
+    
     <label for="imagen">Imagen:</label>
     <input type="file" id="imagen" name="imagen" (change)="onFileChange($event)"><br><br>
     <input type="submit" value="Enviar">

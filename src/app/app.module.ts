@@ -9,7 +9,7 @@ import { PokemonsDetailComponent } from './Components/pokemons-detail/pokemons-d
 import { AllPokemonsComponent } from './Components/all-pokemons/all-pokemons.component';
 import { CreatePokemonsComponent } from './Components/create-pokemons/create-pokemons.component';
 import { HeaderComponent } from './Components/Header/header/header.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 
 
 @NgModule({
@@ -27,7 +27,9 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
+
 
   ],
   providers: [],

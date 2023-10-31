@@ -5,7 +5,6 @@ body {
     height: 100vh;
     margin: 0;
   }
-  
   .form {
     display: flex;
     flex-direction: column;
@@ -15,12 +14,10 @@ body {
     border-radius: 10px;
     height: 120vh;;
   }
-  
   .form label {
     font-weight: bold;
     margin-top: 10px;
   }
-  
   .form input[type="text"],
   .form input[type="date"],
   .form select {
@@ -28,12 +25,10 @@ body {
     padding: 10px;
     margin-top: 5px;
   }
-  
   .form input[type="submit"] {
     margin-top: 20px;
     padding: 10px 20px;
   }
-  
   @media (max-width: 600px) {
     .form {
       width: 80%;

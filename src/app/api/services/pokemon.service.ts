@@ -138,7 +138,7 @@ getAllDebilidades(): Observable<string[]> {
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiPokemonPost(params?: ApiPokemonPost$Params, context?: HttpContext): Observable<void> {
+   apiPokemonPost(params?: ApiPokemonPost$Params, context?: HttpContext): Observable<void> {
     return this.apiPokemonPost$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );

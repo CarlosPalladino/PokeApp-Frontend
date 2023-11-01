@@ -17,6 +17,10 @@ const routes: Routes = [
     component: CreatePokemonsComponent
   },
   {
+    path: 'create-pokemons/:id',
+    component: CreatePokemonsComponent
+  },
+  {
     path: 'all-pokemons',
     component: AllPokemonsComponent
   },

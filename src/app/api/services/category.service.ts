@@ -39,16 +39,15 @@ export class CategoryService extends BaseService {
   /** Path part for operation `apiCategoryGet()` */
   static readonly ApiCategoryGetPath = '/api/Category';
 
+getCategoryByName(name: string): Observable<Category | null> {
+  return this.apiCategoryGet$Json().pipe(
+    map((categories: Category[]) => {
+      const category = categories.find(category => category.name === name);
+      return category ? category : null;
+    })
+  ); 
+}
 
-  // getCategoryByName(name: string): Observable<Category | null> {
-  //   return this.apiCategoryGet$Json().pipe(
-  //     map((categories: Category[]) => {
-  //       const category = categories.find(category => category.name === name);
-  //       return category ? category : null;
-  //     })
-  //   ); 
-  // }
-  
 
 
   

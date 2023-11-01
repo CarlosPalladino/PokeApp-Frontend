@@ -75,51 +75,58 @@ export class CreatePokemonsComponent implements OnInit, AfterViewInit {
       const params = { PokeId: Number(pokeId) };
       console.log(this.pokemon);
       this.api.apiPokemonPokeIdGet$Json(params).subscribe(pokemon => {
-        console.log(pokemon);
         this.pokemon = pokemon;
-        this.form.form.patchValue({
-          nombre: pokemon.name,
-          fecha_nacimiento: pokemon.birthDate,
-          tipo: pokemon.tipo,
-          debilidad: pokemon.debilidad
-        });
+        this.updateFormWithPokemonData();
       });
     }
   }
-  onSubmit() {
-    console.log('pokemon:', this.pokemon);
   
-    if (this.ownerId === undefined || this.categoryId === undefined) {
-      Swal.fire('Error', 'El ID del propietario o la categoría no está definido.', 'error');
-      return;
+  updateFormWithPokemonData() {
+    if (this.form && this.form.form) {
+      this.form.form.patchValue({
+        nombre: this.pokemon.name,
+        fecha_nacimiento: this.pokemon.birthDate,
+        tipo: this.pokemon.tipo,
+        debilidad: this.pokemon.debilidad
+      });
     }
+  }
   
-    this.ownerService.getOwnerById(this.ownerId).subscribe(owner => {
+  onSubmit() {
+    this.ownerService.getOwnerByName(this.ownerName).subscribe(owner => {
       if (owner === null) {
         Swal.fire('Error', 'No se encontró el propietario.', 'error');
         return;
       }
-      if (this.categoryId === undefined) {
-        Swal.fire('Error', 'El ID de la categoría no está definido.', 'error');
-        return;
-      }
-      this.categoryService.getCategoryById(this.categoryId).subscribe(category => {
+      this.categoryService.getCategoryByName(this.categoryName).subscribe(category => {
         if (category === null) {
           Swal.fire('Error', 'No se encontró la categoría.', 'error');
           return;
         }
-    
-        this.api.apiPokemonPost({ ownerId: owner.id, categoryId: category.id, body: this.pokemon })
-          .subscribe(() => {
-            Swal.fire('¡Éxito!', 'Pokémon creado con éxito.', 'success');
-          },
-          error => {
-            console.log('error completo:', error);
-            Swal.fire('Error', 'Hubo un error al crear el Pokémon.', 'error');
-          });
+        // Si el Pokémon ya tiene un id, entonces es una actualización
+        if (this.pokemon.id) {
+          this.api.apiPokemonPokemonIdPut({ pokemonId: this.pokemon.id, ownerId: owner.id, categoryId: category.id, body: this.pokemon })
+            .subscribe(() => {
+              Swal.fire('¡Éxito!', 'Pokémon actualizado con éxito.', 'success');
+            },
+            error => {
+              console.log('error completo:', error);
+              Swal.fire('Error', 'Hubo un error al actualizar el Pokémon.', 'error');
+            });
+        } else { // Si no, entonces es una creación
+          this.api.apiPokemonPost({ ownerId: owner.id, categoryId: category.id, body: this.pokemon })
+            .subscribe(() => {
+              Swal.fire('¡Éxito!', 'Pokémon creado con éxito.', 'success');
+            },
+            error => {
+              console.log('error completo:', error);
+              Swal.fire('Error', 'Hubo un error al crear el Pokémon.', 'error');
+            });
+        }
       });
     });
   }
+  
   
   
   

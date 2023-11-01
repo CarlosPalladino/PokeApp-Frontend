@@ -40,15 +40,14 @@ export class OwnerService extends BaseService {
 
 
 
-
-  // getOwnerByName(name: string): Observable<Owner | null> {
-  //   return this.apiOwnerGet$Json().pipe(
-  //     map((owners: Owner[]) => {
-  //       const owner = owners.find(owner => owner.firstName === name);
-  //       return owner ? owner : null;
-  //     })
-  //   ); 
-  // }
+ getOwnerByName(name: string): Observable<Owner | null> {
+   return this.apiOwnerGet$Json().pipe(
+     map((owners: Owner[]) => {
+       const owner = owners.find(owner => owner.firstName === name);
+       return owner ? owner : null;
+     })
+   ); 
+ }
   getOwnerById(id: number): Observable<Owner | null> {
     return this.apiOwnerGet$Json().pipe(
       map((owners: Owner[]) => {

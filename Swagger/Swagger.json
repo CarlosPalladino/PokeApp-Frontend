@@ -952,7 +952,7 @@
         }
       }
     },
-    "/api/Owner/{ownerId}/pokemon": {
+    "/api/Owner/pokemon/{ownerId}": {
       "get": {
         "tags": [
           "Owner"
@@ -974,17 +974,26 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Owner"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Pokemons"
+                  }
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Owner"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Pokemons"
+                  }
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Owner"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Pokemons"
+                  }
                 }
               }
             }

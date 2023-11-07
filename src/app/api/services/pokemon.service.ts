@@ -36,10 +36,6 @@ export class PokemonService extends BaseService {
     super(config, http);
   }
 
-  /** Path part for operation `apiPokemonGet()` */
-  static readonly ApiPokemonGetPath = '/api/Pokemon';
-
-
 //retorna todas los tipos 
 getAllTipos(): Observable<string[]> {
   return this.apiPokemonGet$Json().pipe(
@@ -68,12 +64,8 @@ getAllDebilidades(): Observable<string[]> {
     })
   );
 }
-
-
-
-
-
-
+  /** Path part for operation `apiPokemonGet()` */
+  static readonly ApiPokemonGetPath = '/api/Pokemon';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -113,9 +105,9 @@ getAllDebilidades(): Observable<string[]> {
    *
    * This method doesn't expect any request body.
    */
-  apiPokemonGet$Json(params?: ApiPokemonGet$Json$Params, context?: HttpContext): Observable<Array<Pokemons>> {
+  apiPokemonGet$Json(params?: ApiPokemonGet$Json$Params, context?: HttpContext): Observable<Array<PokemonDto>> {
     return this.apiPokemonGet$Json$Response(params, context).pipe(
-      map((r: StrictHttpResponse<Array<Pokemons>>): Array<Pokemons> => r.body)
+      map((r: StrictHttpResponse<Array<PokemonDto>>): Array<PokemonDto> => r.body)
     );
   }
 
@@ -138,7 +130,7 @@ getAllDebilidades(): Observable<string[]> {
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-   apiPokemonPost(params?: ApiPokemonPost$Params, context?: HttpContext): Observable<void> {
+  apiPokemonPost(params?: ApiPokemonPost$Params, context?: HttpContext): Observable<void> {
     return this.apiPokemonPost$Response(params, context).pipe(
       map((r: StrictHttpResponse<void>): void => r.body)
     );

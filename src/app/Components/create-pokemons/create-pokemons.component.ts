@@ -67,7 +67,6 @@ export class CreatePokemonsComponent implements OnInit, AfterViewInit {
       this.debilidades = debilidades;
     });
   }
-
   ngAfterViewInit() {
     const pokeId = this.route.snapshot.paramMap.get('id');
     console.log(pokeId);
@@ -77,6 +76,46 @@ export class CreatePokemonsComponent implements OnInit, AfterViewInit {
       this.api.apiPokemonPokeIdGet$Json(params).subscribe(pokemon => {
         this.pokemon = pokemon;
         this.updateFormWithPokemonData();
+  
+        // Después de obtener los datos del Pokémon, obtén la categoría a la que pertenece.
+        this.categoryService.apiCategoryGet$Json()
+        .subscribe(categories => {
+          if (categories) {
+            // Busca la categoría a la que pertenece el Pokémon.
+            const pokemonCategory = categories.find(category => 
+              category && category.pokemonCategories 
+              && category.pokemonCategories
+              .some(pokemonCategory => 
+                pokemonCategory.pokemonId === Number(pokeId)
+              )
+            );
+        
+            if (pokemonCategory) {
+              // Si encontraste la categoría, puedes mostrar su nombre.
+              console.log(pokemonCategory.name);
+            }
+          }
+        });
+  
+        // Después de obtener los datos del Pokémon, obtén el propietario a quien pertenece.
+        this.ownerService.apiOwnerGet$Json()
+        .subscribe(owners => {
+          if (owners) {
+            // Busca el propietario a quien pertenece el Pokémon.
+            const pokemonOwner = owners.find(owner => 
+              owner && owner.pokemonOwner 
+              && owner.pokemonOwner
+              .some(pokemonOwner => 
+                pokemonOwner.pokemonId === Number(pokeId)
+              )
+            );
+        
+            if (pokemonOwner) {
+              // Si encontraste al propietario, puedes mostrar su nombre.
+              console.log(pokemonOwner.firstName);
+            }
+          }
+        });
       });
     }
   }

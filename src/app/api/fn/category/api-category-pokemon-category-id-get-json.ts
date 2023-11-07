@@ -7,6 +7,7 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 import { Pokemons } from '../../models/pokemons';
+import { PokemonDto } from '../../models';
 
 export interface ApiCategoryPokemonCategoryIdGet$Json$Params {
   categoryId: number;
@@ -23,7 +24,7 @@ export function apiCategoryPokemonCategoryIdGet$Json(http: HttpClient, rootUrl: 
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<Array<Pokemons>>;
+      return r as StrictHttpResponse<Array<PokemonDto>>;
     })
   );
 }

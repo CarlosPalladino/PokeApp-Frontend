@@ -19,48 +19,42 @@ import { apiOwnerOwnerIdGet$Json } from '../fn/owner/api-owner-owner-id-get-json
 import { ApiOwnerOwnerIdGet$Json$Params } from '../fn/owner/api-owner-owner-id-get-json';
 import { apiOwnerOwnerIdGet$Plain } from '../fn/owner/api-owner-owner-id-get-plain';
 import { ApiOwnerOwnerIdGet$Plain$Params } from '../fn/owner/api-owner-owner-id-get-plain';
-import { apiOwnerOwnerIdPokemonGet$Json } from '../fn/owner/api-owner-owner-id-pokemon-get-json';
-import { ApiOwnerOwnerIdPokemonGet$Json$Params } from '../fn/owner/api-owner-owner-id-pokemon-get-json';
-import { apiOwnerOwnerIdPokemonGet$Plain } from '../fn/owner/api-owner-owner-id-pokemon-get-plain';
-import { ApiOwnerOwnerIdPokemonGet$Plain$Params } from '../fn/owner/api-owner-owner-id-pokemon-get-plain';
 import { apiOwnerOwnerIdPut } from '../fn/owner/api-owner-owner-id-put';
 import { ApiOwnerOwnerIdPut$Params } from '../fn/owner/api-owner-owner-id-put';
+import { apiOwnerPokemonOwnerIdGet$Json } from '../fn/owner/api-owner-pokemon-owner-id-get-json';
+import { ApiOwnerPokemonOwnerIdGet$Json$Params } from '../fn/owner/api-owner-pokemon-owner-id-get-json';
+import { apiOwnerPokemonOwnerIdGet$Plain } from '../fn/owner/api-owner-pokemon-owner-id-get-plain';
+import { ApiOwnerPokemonOwnerIdGet$Plain$Params } from '../fn/owner/api-owner-pokemon-owner-id-get-plain';
 import { apiOwnerPost } from '../fn/owner/api-owner-post';
 import { ApiOwnerPost$Params } from '../fn/owner/api-owner-post';
 import { Owner } from '../models/owner';
+import { Pokemons } from '../models/pokemons';
+import { PokemonDto } from '../models';
 
 @Injectable({ providedIn: 'root' })
 export class OwnerService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
   }
-
-  /** Path part for operation `apiOwnerGet()` */
-  static readonly ApiOwnerGetPath = '/api/Owner';
-
-
-
- getOwnerByName(name: string): Observable<Owner | null> {
-   return this.apiOwnerGet$Json().pipe(
-     map((owners: Owner[]) => {
-       const owner = owners.find(owner => owner.firstName === name);
-       return owner ? owner : null;
-     })
-   ); 
- }
+  getOwnerByName(name: string): Observable<Owner | null> {
+    return this.apiOwnerGet$Json().pipe(
+      map((owners: Owner[]) => {
+        const owner = owners.find(owner => owner.firstName + ' ' + owner.lastName === name);
+        return owner ? owner : null;
+      })
+    );
+  }
+  
   getOwnerById(id: number): Observable<Owner | null> {
     return this.apiOwnerGet$Json().pipe(
       map((owners: Owner[]) => {
         const owner = owners.find(owner => owner.id === id);
         return owner ? owner : null;
       })
-    ); 
+    );
   }
-  
-
-
-
-
+  /** Path part for operation `apiOwnerGet()` */
+  static readonly ApiOwnerGetPath = '/api/Owner';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -228,50 +222,50 @@ export class OwnerService extends BaseService {
     );
   }
 
-  /** Path part for operation `apiOwnerOwnerIdPokemonGet()` */
-  static readonly ApiOwnerOwnerIdPokemonGetPath = '/api/Owner/{ownerId}/pokemon';
+  /** Path part for operation `apiOwnerPokemonOwnerIdGet()` */
+  static readonly ApiOwnerPokemonOwnerIdGetPath = '/api/Owner/pokemon/{ownerId}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiOwnerOwnerIdPokemonGet$Plain()` instead.
+   * To access only the response body, use `apiOwnerPokemonOwnerIdGet$Plain()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiOwnerOwnerIdPokemonGet$Plain$Response(params: ApiOwnerOwnerIdPokemonGet$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<Owner>> {
-    return apiOwnerOwnerIdPokemonGet$Plain(this.http, this.rootUrl, params, context);
+  apiOwnerPokemonOwnerIdGet$Plain$Response(params: ApiOwnerPokemonOwnerIdGet$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<Pokemons>>> {
+    return apiOwnerPokemonOwnerIdGet$Plain(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `apiOwnerOwnerIdPokemonGet$Plain$Response()` instead.
+   * To access the full response (for headers, for example), `apiOwnerPokemonOwnerIdGet$Plain$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiOwnerOwnerIdPokemonGet$Plain(params: ApiOwnerOwnerIdPokemonGet$Plain$Params, context?: HttpContext): Observable<Owner> {
-    return this.apiOwnerOwnerIdPokemonGet$Plain$Response(params, context).pipe(
-      map((r: StrictHttpResponse<Owner>): Owner => r.body)
+  apiOwnerPokemonOwnerIdGet$Plain(params: ApiOwnerPokemonOwnerIdGet$Plain$Params, context?: HttpContext): Observable<Array<Pokemons>> {
+    return this.apiOwnerPokemonOwnerIdGet$Plain$Response(params, context).pipe(
+      map((r: StrictHttpResponse<Array<Pokemons>>): Array<Pokemons> => r.body)
     );
   }
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiOwnerOwnerIdPokemonGet$Json()` instead.
+   * To access only the response body, use `apiOwnerPokemonOwnerIdGet$Json()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiOwnerOwnerIdPokemonGet$Json$Response(params: ApiOwnerOwnerIdPokemonGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<Owner>> {
-    return apiOwnerOwnerIdPokemonGet$Json(this.http, this.rootUrl, params, context);
+  apiOwnerPokemonOwnerIdGet$Json$Response(params: ApiOwnerPokemonOwnerIdGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<PokemonDto>>> {
+    return apiOwnerPokemonOwnerIdGet$Json(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `apiOwnerOwnerIdPokemonGet$Json$Response()` instead.
+   * To access the full response (for headers, for example), `apiOwnerPokemonOwnerIdGet$Json$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiOwnerOwnerIdPokemonGet$Json(params: ApiOwnerOwnerIdPokemonGet$Json$Params, context?: HttpContext): Observable<Owner> {
-    return this.apiOwnerOwnerIdPokemonGet$Json$Response(params, context).pipe(
-      map((r: StrictHttpResponse<Owner>): Owner => r.body)
+  apiOwnerPokemonOwnerIdGet$Json(params: ApiOwnerPokemonOwnerIdGet$Json$Params, context?: HttpContext): Observable<Array<Pokemons>> {
+    return this.apiOwnerPokemonOwnerIdGet$Json$Response(params, context).pipe(
+      map((r: StrictHttpResponse<Array<Pokemons>>): Array<PokemonDto> => r.body)
     );
   }
 

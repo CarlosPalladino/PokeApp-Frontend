@@ -6,14 +6,14 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-import { Owner } from '../../models/owner';
+import { Pokemons } from '../../models/pokemons';
 
-export interface ApiOwnerOwnerIdPokemonGet$Plain$Params {
+export interface ApiOwnerPokemonOwnerIdGet$Plain$Params {
   ownerId: number;
 }
 
-export function apiOwnerOwnerIdPokemonGet$Plain(http: HttpClient, rootUrl: string, params: ApiOwnerOwnerIdPokemonGet$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<Owner>> {
-  const rb = new RequestBuilder(rootUrl, apiOwnerOwnerIdPokemonGet$Plain.PATH, 'get');
+export function apiOwnerPokemonOwnerIdGet$Plain(http: HttpClient, rootUrl: string, params: ApiOwnerPokemonOwnerIdGet$Plain$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<Pokemons>>> {
+  const rb = new RequestBuilder(rootUrl, apiOwnerPokemonOwnerIdGet$Plain.PATH, 'get');
   if (params) {
     rb.path('ownerId', params.ownerId, {});
   }
@@ -23,9 +23,9 @@ export function apiOwnerOwnerIdPokemonGet$Plain(http: HttpClient, rootUrl: strin
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<Owner>;
+      return r as StrictHttpResponse<Array<Pokemons>>;
     })
   );
 }
 
-apiOwnerOwnerIdPokemonGet$Plain.PATH = '/api/Owner/{ownerId}/pokemon';
+apiOwnerPokemonOwnerIdGet$Plain.PATH = '/api/Owner/pokemon/{ownerId}';

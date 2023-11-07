@@ -1,8 +1,3 @@
-<!--
-  No hace falta que crees la estructura html desde cero porque Angular se encarga
-de hacerlo internamente por vos
--->
-
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
 
@@ -27,6 +22,8 @@ de hacerlo internamente por vos
 </head>
 
 <body>
+
+
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
     <symbol id="check2" viewBox="0 0 16 16">
       <path
@@ -152,7 +149,24 @@ de hacerlo internamente por vos
         </div>
       </div>
     </section>
+    <section id="Menu">
+      <label for="tipo">Tipo:</label>
+      <select id="tipo" name="tipo" [(ngModel)]="tipo" (change)="cambiarTipo($event)">
+        <option value="category">Category</option>
+        <option value="owner">Owner</option>
+      </select>
+    
+      <!-- Selector para mostrar los elementos correspondientes -->
+      <label for="elementoId">Elemento:</label>
+      <select id="elementoId" name="elementoId" [(ngModel)]="elementoSeleccionado" required>
+        <option *ngFor="let elemento of elementos" [value]="tipo === 'owner' ? (elemento.firstName + ' ' + elemento.lastName) : elemento.name">
+          {{tipo === 'owner' ? (elemento.firstName + ' ' + elemento.lastName) : elemento.name}}
+        </option>     
+      </select>
+       <button (click)="buscarPokemon()">Buscar Pokémon</button>
 
+    </section>
+    
     <div class="album py-5 bg-body-tertiary">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">

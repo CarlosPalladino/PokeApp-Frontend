@@ -29,6 +29,7 @@ import { apiCategoryPost } from '../fn/category/api-category-post';
 import { ApiCategoryPost$Params } from '../fn/category/api-category-post';
 import { Category } from '../models/category';
 import { Pokemons } from '../models/pokemons';
+import { PokemonDto } from '../models';
 
 @Injectable({ providedIn: 'root' })
 export class CategoryService extends BaseService {
@@ -38,28 +39,26 @@ export class CategoryService extends BaseService {
 
   /** Path part for operation `apiCategoryGet()` */
   static readonly ApiCategoryGetPath = '/api/Category';
-
-getCategoryByName(name: string): Observable<Category | null> {
-  return this.apiCategoryGet$Json().pipe(
-    map((categories: Category[]) => {
-      const category = categories.find(category => category.name === name);
-      return category ? category : null;
-    })
-  ); 
-}
-
-
-
-  
-  getCategoryById(id: number): Observable<Category | null> {
+  getCategoryByName(name: string): Observable<Category | null> {
     return this.apiCategoryGet$Json().pipe(
       map((categories: Category[]) => {
-        const category = categories.find(category => category.id === id);
+        const category = categories.find(category => category.name === name);
         return category ? category : null;
       })
     ); 
   }
-
+  
+  
+  
+    
+    getCategoryById(id: number): Observable<Category | null> {
+      return this.apiCategoryGet$Json().pipe(
+        map((categories: Category[]) => {
+          const category = categories.find(category => category.id === id);
+          return category ? category : null;
+        })
+      ); 
+    }
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `apiCategoryGet$Plain()` instead.
@@ -207,7 +206,7 @@ getCategoryByName(name: string): Observable<Category | null> {
    *
    * This method doesn't expect any request body.
    */
-  apiCategoryPokemonCategoryIdGet$Json$Response(params: ApiCategoryPokemonCategoryIdGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<Pokemons>>> {
+  apiCategoryPokemonCategoryIdGet$Json$Response(params: ApiCategoryPokemonCategoryIdGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<PokemonDto>>> {
     return apiCategoryPokemonCategoryIdGet$Json(this.http, this.rootUrl, params, context);
   }
 

@@ -7,11 +7,13 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 import { Pokemons } from '../../models/pokemons';
+import { PokemonDto } from '../../models';
 
 export interface ApiPokemonGet$Json$Params {
 }
 
-export function apiPokemonGet$Json(http: HttpClient, rootUrl: string, params?: ApiPokemonGet$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<Pokemons>>> {
+export function apiPokemonGet$Json(http: HttpClient, rootUrl: string, params?: ApiPokemonGet$Json$Params, context?: HttpContext):
+ Observable<StrictHttpResponse<Array<PokemonDto>>> {
   const rb = new RequestBuilder(rootUrl, apiPokemonGet$Json.PATH, 'get');
   if (params) {
   }
@@ -21,7 +23,7 @@ export function apiPokemonGet$Json(http: HttpClient, rootUrl: string, params?: A
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<Array<Pokemons>>;
+      return r as StrictHttpResponse<Array<PokemonDto>>;
     })
   );
 }

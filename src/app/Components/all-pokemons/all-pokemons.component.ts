@@ -37,6 +37,7 @@ export class AllPokemonsComponent implements OnInit {
         this.pokemons = pokemons;
       });
     
+    
       forkJoin({
         owners: this.ownerService.apiOwnerGet$Json(),
         categories: this.categoryService.apiCategoryGet$Json()
@@ -49,6 +50,9 @@ export class AllPokemonsComponent implements OnInit {
       });
     
       this.cambiarTipoInicial(this.tipo);
+    }
+    resetearVistas() {
+      this.ngOnInit();
     }
     
     cambiarTipo(event: Event) {

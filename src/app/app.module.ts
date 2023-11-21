@@ -2,26 +2,25 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http';
-import { OwnersComponent } from './Components/owners/owners.component';
+import { HttpClientModule } from '@angular/common/http';
 import { TestComponent } from './Components/test/test.component';
 import { PokemonsDetailComponent } from './Components/pokemons-detail/pokemons-detail.component';
 import { AllPokemonsComponent } from './Components/all-pokemons/all-pokemons.component';
 import { CreatePokemonsComponent } from './Components/create-pokemons/create-pokemons.component';
 import { HeaderComponent } from './Components/Header/header/header.component';
-import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './Components/footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    OwnersComponent,
     TestComponent,
     PokemonsDetailComponent,
     AllPokemonsComponent,
     CreatePokemonsComponent,
-    HeaderComponent
-    
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

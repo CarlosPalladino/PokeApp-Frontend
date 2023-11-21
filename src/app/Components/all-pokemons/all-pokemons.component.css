@@ -1,7 +1,11 @@
 #Menu {
-    display: flex; 
-    justify-content: center;  
+    display: flex;
     margin: 5px auto;
+    padding: 1rem;
+    justify-content: space-evenly;
+    flex-direction: row;
+    font-size: larger;
+
   }
 
   

@@ -1,0 +1,33 @@
+.img    {
+    width: 50%;
+    height: 40%;
+    border-radius: 60px;
+}
+.details {
+    margin-top: 200px !important;
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    border-radius: 20px;
+    background-color:#cccccc ;
+    margin-top: 50px;
+    
+
+}
+.card-text {
+    text-decoration: dotted;
+    background-color: rgb(182, 152, 152);
+    text-decoration: dotted;
+    margin: auto;
+    width: 50% !important;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+.card-texts {
+    text-decoration: dotted;
+    border-radius: 5px;
+    font-size: larger ;
+    padding: 2px;
+
+}

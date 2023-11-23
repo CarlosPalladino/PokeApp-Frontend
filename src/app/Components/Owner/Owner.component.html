@@ -1,0 +1,22 @@
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+  <div class="col" *ngFor="let owner of owners">
+    <div class="card shadow-sm">
+      <img class="img"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4PbsV0TmgeWGxwtn_bTy6BlGCq5Fxf6ZXFB3SaOy1&s" alt="Placeholder: Thumbnail">
+      <div class="card-body">
+        <p class="card-text">Nombre</p>
+        <p class="card-texts">{{owner.firstName}}</p>
+        <p class="card-text">Apellido</p>
+
+        <p class="card-texts">{{owner.gym}}</p>
+
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Eliminar</button>
+
+            <a [routerLink]="['/owner-detail', owner.id]" class="btn btn-warning">Ver detalles</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

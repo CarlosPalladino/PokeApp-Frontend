@@ -1,3 +1,23 @@
-:host {
-  display: block;
+.card-body{
+    text-align: center;
+    width: 50%;
+    margin: auto;}
+.card-text {
+    -webkit-text-decoration: dotted;
+    text-decoration: dotted;
+    background-color: gray !important;
+    text-decoration: dotted;
+    border-radius: 5px;
+    
+}
+.img    {
+    width: 50%;
+    height: 40%;
+    border-radius: 60px;
+    align-items: center;
+}
+.card-texts {
+    text-decoration: dotted;
+    border-radius: 5px;
+
 }

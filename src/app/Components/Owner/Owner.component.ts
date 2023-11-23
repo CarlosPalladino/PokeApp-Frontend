@@ -1,10 +1,22 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { OwnerService } from '../../api/services';
+import { OwnerDto } from '../../api/models/owner-dto';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'app-owner',
-    templateUrl: './Owner.component.html',
-    styleUrls: ['./Owner.component.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'app-owner',
+  templateUrl: './owner.component.html',
+  styleUrls: ['./owner.component.css']
 })
-export class OwnerComponent { }
+export class OwnerComponent implements OnInit {
+  owners: OwnerDto[] | null = null; // Cambiado a un array de OwnerDto
+
+  constructor(private route: ActivatedRoute,
+    private ownerService: OwnerService) { }
+
+  ngOnInit() {
+    this.ownerService.apiOwnerGet$Json().subscribe(owners => {
+      this.owners = owners;
+    });
+  }
+}

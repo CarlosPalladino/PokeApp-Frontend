@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { PokemonsDetailComponent } from './Components/pokemons-detail/pokemons-detail.component';
 import { AllPokemonsComponent } from './Components/all-pokemons/all-pokemons.component';
 import { CreatePokemonsComponent } from './Components/create-pokemons/create-pokemons.component';
+import { OwnerComponent } from './Components/owner/owner.component';
+import { OwnerDetailComponent } from './Components/owner-detail/owner-detail.component';
 
 
 
@@ -21,6 +23,10 @@ const routes: Routes = [
     component: CreatePokemonsComponent
   },
   {
+    path: 'owner',
+    component: OwnerComponent
+  },
+  {
     path: 'all-pokemons',
     component: AllPokemonsComponent
   },
@@ -28,6 +34,12 @@ const routes: Routes = [
 
     path: 'details-pokemon/:id',
     component: PokemonsDetailComponent
+
+  },
+  {
+
+    path: 'owner-detail/:id',
+    component: OwnerDetailComponent
 
   },
 

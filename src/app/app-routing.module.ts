@@ -5,6 +5,7 @@ import { AllPokemonsComponent } from './Components/all-pokemons/all-pokemons.com
 import { CreatePokemonsComponent } from './Components/create-pokemons/create-pokemons.component';
 import { OwnerComponent } from './Components/owner/owner.component';
 import { OwnerDetailComponent } from './Components/owner-detail/owner-detail.component';
+import { CreateOwnerComponent } from './Components/create-owner/create-owner.component';
 
 
 
@@ -21,6 +22,14 @@ const routes: Routes = [
   {
     path: 'create-pokemons/:id',
     component: CreatePokemonsComponent
+  },
+  {
+    path: 'create-owner/:id',
+    component: CreateOwnerComponent
+  },
+  {
+    path: 'create-owner',
+    component: CreateOwnerComponent
   },
   {
     path: 'owner',

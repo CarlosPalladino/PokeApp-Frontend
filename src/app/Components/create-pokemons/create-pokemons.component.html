@@ -14,13 +14,17 @@
     </select><br><br>
 
     <label for="ownerId">Nombre del propietario:</label>
-    <select id="ownerName" name="ownerName" [(ngModel)]="ownerName" required>
-      <option *ngFor="let owner of owners" [value]="owner.firstName">{{owner.firstName}}</option>
+    <select id="ownerName" name="ownerName"
+     [(ngModel)]="ownerName" required>
+      <option *ngFor="let owner of owners"
+       [value]="owner.firstName">{{owner.firstName}}</option>
     </select>
     <br><br>
     <label for="ownerId">Categoria</label>
-    <select id="categoryName" name="categoryName" [(ngModel)]="categoryName" required>
-      <option *ngFor="let category of categories" [value]="category.name">{{category.name}}</option>
+    <select id="categoryName" name="categoryName" 
+    [(ngModel)]="categoryName" required>
+      <option *ngFor="let category of categories" 
+      [value]="category.name">{{category.name}}</option>
     </select>
     <br><br>
     <label for="imagen">Imagen:</label>

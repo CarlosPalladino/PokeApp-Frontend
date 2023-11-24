@@ -1,38 +1,39 @@
 #Menu {
-    display: flex;
     margin: 5px auto;
     padding: 1rem;
     justify-content: space-evenly;
     flex-direction: row;
     font-size: larger;
-
+    align-items: center; /* Alinea los elementos verticalmente en el centro */
+    text-align: center;
   }
-
   
+  #Menu select, #Menu button {
+    margin: 0 5px; /* Reduce el margen a los lados de cada select y botón para acercarlos */
+    padding: 5px 10px; /* Aumenta el tamaño de los select y botones al agregar relleno alrededor del texto */
+  }
   
-
-.img {
+  .img {
     width: 300px;
     height: 300px;
     margin: auto;
-}
-
-.details {
+  }
+  
+  .details {
     text-align: center;
     width: 50%;
     margin: auto;
-}
-
-.card-text {
+  }
+  
+  .card-text {
     text-decoration: dotted;
     background-color: gray !important;
     text-decoration: dotted;
     border-radius: 5px;
-
-}
-
-.card-texts {
+  }
+  
+  .card-texts {
     text-decoration: dotted;
     border-radius: 5px;
-
-}
+  }
+  

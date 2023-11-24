@@ -10,8 +10,8 @@
 <section id="buttons">
     <button (click)="eliminarOwner()"   
       class="btn btn-danger">Eliminar</button>
-   <a [routerLink]="['/owner',owner.id]"
-         class="btn btn-warning"> Modificar</a>
+      <a [routerLink]="['/create-owner', owner.id]"
+       class="btn btn-warning"> Modificar</a>
 
     
 </section>

@@ -10,14 +10,21 @@
     border-radius: 5px;
     
 }
-.img    {
+.img {
     width: 50%;
     height: 40%;
     border-radius: 60px;
-    align-items: center;
-}
+    display: block; /* Asegúrate de que la imagen se muestre como un bloque */
+    margin: auto; /* Centra la imagen horizontalmente */
+    margin-top: 20px; /* Agrega un margen superior */
+  }
 .card-texts {
     text-decoration: dotted;
     border-radius: 5px;
 
 }
+.btn-group button {
+    margin-right: 10px; /* Agrega un margen a la derecha de cada botón para separarlos */
+    padding: 10px 20px; /* Aumenta el tamaño de los botones */
+  }
+  

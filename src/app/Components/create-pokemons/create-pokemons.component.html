@@ -1,5 +1,5 @@
 <body>
-  <form class="form" (ngSubmit)="onSubmit()">
+  <form class="form" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" [(ngModel)]="pokemon.name" required><br><br>
     <label for="fecha_nacimiento">Fecha de nacimiento:</label>

@@ -49,7 +49,15 @@ export class CategoryService extends BaseService {
   }
   
   
-  
+  getCategoryByIdByName(name: string): Observable<number | null> {
+    return this.apiCategoryGet$Json().pipe(
+      map((categories: Category[]) => {
+        const category = categories.find(category => category.name === name);
+        return category ? category.id : null;
+      }),
+      map(id => id !== undefined ? id : null)
+    );
+  }
     
     getCategoryById(id: number): Observable<Category | null> {
       return this.apiCategoryGet$Json().pipe(

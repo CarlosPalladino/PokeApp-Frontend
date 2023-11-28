@@ -36,6 +36,15 @@ export class OwnerService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
   }
+  getOwnerIdByName(name: string): Observable<number | null> {
+    return this.apiOwnerGet$Json().pipe(
+      map((owners: Owner[]) => {
+        const owner = owners.find(owner => owner.firstName === name);
+        return owner ? owner.id : null;
+      }),
+      map(id => id !== undefined ? id : null)
+    ); 
+  }
   getOwnerByName(name: string): Observable<Owner | null> {
     return this.apiOwnerGet$Json().pipe(
       map((owners: Owner[]) => {

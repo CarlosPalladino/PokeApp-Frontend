@@ -6,8 +6,8 @@ import { OwnerDto } from '../../api/models/owner-dto';
 import Swal from 'sweetalert2';
 import { PokemonService } from '../../api/services';
 import { NgForm } from '@angular/forms';
-import { OwnerService } from '../../api/services/owner.service';
-import { CategoryService } from '../../api/services/category.service';
+import { OwnerService } from '../../api/services';
+import { CategoryService } from '../../api/services';
 
 // Asegúrate de importar OwnerService
 
@@ -24,8 +24,6 @@ export class CreatePokemonsComponent implements OnInit, AfterViewInit {
   tipos: string[] = [];
   debilidades: string[] = [];
   ownerName: string = '';
-  ownerId: number | undefined;
-  categoryId: number | undefined;
   categoryName: string = '';
   imagen: File | null = null;
 
@@ -35,15 +33,11 @@ export class CreatePokemonsComponent implements OnInit, AfterViewInit {
     private categoryService: CategoryService) { }
 
 
-    onFileChange(event: any) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        this.pokemon.image = reader.result as string;
-      };
+  onFileChange(event: any) {
+    if (event.target.files && event.target.files.length) {
+      this.imagen = event.target.files[0];
     }
-    
+  }
 
   ngOnInit() {
     this.ownerService.apiOwnerGet$Json().subscribe(owners => {
@@ -67,6 +61,7 @@ export class CreatePokemonsComponent implements OnInit, AfterViewInit {
       this.debilidades = debilidades;
     });
   }
+
   ngAfterViewInit() {
     const pokeId = this.route.snapshot.paramMap.get('id');
     console.log(pokeId);
@@ -74,86 +69,35 @@ export class CreatePokemonsComponent implements OnInit, AfterViewInit {
       const params = { PokeId: Number(pokeId) };
       console.log(this.pokemon);
       this.api.apiPokemonPokeIdGet$Json(params).subscribe(pokemon => {
+        console.log(pokemon);
         this.pokemon = pokemon;
-        this.updateFormWithPokemonData();
-  
-        // Después de obtener los datos del Pokémon, obtén la categoría a la que pertenece.
-        this.categoryService.apiCategoryGet$Json()
-        .subscribe(categories => {
-          if (categories) {
-            // Busca la categoría a la que pertenece el Pokémon.
-            const pokemonCategory = categories.find(category => 
-              category && category.pokemonCategories 
-              && category.pokemonCategories
-              .some(pokemonCategory => 
-                pokemonCategory.pokemonId === Number(pokeId)
-              )
-            );
-        
-            if (pokemonCategory) {
-              // Si encontraste la categoría, puedes mostrar su nombre.
-              console.log(pokemonCategory.name);
-            }
-          }
-        });
-  
-        // Después de obtener los datos del Pokémon, obtén el propietario a quien pertenece.
-        this.ownerService.apiOwnerGet$Json()
-        .subscribe(owners => {
-          if (owners) {
-            // Busca el propietario a quien pertenece el Pokémon.
-            const pokemonOwner = owners.find(owner => 
-              owner && owner.pokemonOwner 
-              && owner.pokemonOwner
-              .some(pokemonOwner => 
-                pokemonOwner.pokemonId === Number(pokeId)
-              )
-            );
-        
-            if (pokemonOwner) {
-              // Si encontraste al propietario, puedes mostrar su nombre.
-              console.log(pokemonOwner.firstName);
-            }
-          }
+        this.form.form.patchValue({
+          nombre: pokemon.name,
+          fecha_nacimiento: pokemon.birthDate,
+          tipo: pokemon.tipo,
+          debilidad: pokemon.debilidad
         });
       });
     }
   }
-  
-  updateFormWithPokemonData() {
-    if (this.form && this.form.form) {
-      this.form.form.patchValue({
-        nombre: this.pokemon.name,
-        fecha_nacimiento: this.pokemon.birthDate,
-        tipo: this.pokemon.tipo,
-        debilidad: this.pokemon.debilidad
-      });
-    }
-  }
-  
   onSubmit() {
-    this.ownerService.getOwnerByName(this.ownerName).subscribe(owner => {
-      if (owner === null) {
+    this.ownerService.getOwnerIdByName(this.ownerName).subscribe(ownerId => {
+      console.log('ownerId:', ownerId);
+      if (ownerId === null) {
         Swal.fire('Error', 'No se encontró el propietario.', 'error');
         return;
       }
-      this.categoryService.getCategoryByName(this.categoryName).subscribe(category => {
-        if (category === null) {
-          Swal.fire('Error', 'No se encontró la categoría.', 'error');
-          return;
-        }
-        // Si el Pokémon ya tiene un id, entonces es una actualización
-        if (this.pokemon.id) {
-          this.api.apiPokemonPokemonIdPut({ pokemonId: this.pokemon.id, ownerId: owner.id, categoryId: category.id, body: this.pokemon })
-            .subscribe(() => {
-              Swal.fire('¡Éxito!', 'Pokémon actualizado con éxito.', 'success');
-            },
-            error => {
-              console.log('error completo:', error);
-              Swal.fire('Error', 'Hubo un error al actualizar el Pokémon.', 'error');
-            });
-        } else { // Si no, entonces es una creación
-          this.api.apiPokemonPost({ ownerId: owner.id, categoryId: category.id, body: this.pokemon })
+  
+      this.categoryService.getCategoryByIdByName(this.categoryName)
+        .subscribe(categoryId => {
+          console.log('categoryId:', categoryId);
+          if (categoryId === null) {
+            Swal.fire('Error', 'No se encontró la categoría.', 'error');
+            return;
+          }
+  
+          console.log('pokemon:', this.pokemon);
+          this.api.apiPokemonPost({ ownerId: ownerId, categoryId: categoryId, body: this.pokemon })
             .subscribe(() => {
               Swal.fire('¡Éxito!', 'Pokémon creado con éxito.', 'success');
             },
@@ -161,13 +105,9 @@ export class CreatePokemonsComponent implements OnInit, AfterViewInit {
               console.log('error completo:', error);
               Swal.fire('Error', 'Hubo un error al crear el Pokémon.', 'error');
             });
-        }
-      });
+        });
     });
   }
   
-  
-  
-  
-}
 
+  }

@@ -32,12 +32,28 @@ export class CreatePokemonsComponent implements OnInit, AfterViewInit {
     private ownerService: OwnerService,
     private categoryService: CategoryService) { }
 
-
-  onFileChange(event: any) {
-    if (event.target.files && event.target.files.length) {
-      this.imagen = event.target.files[0];
+    onFileChange(event: any) {
+      if (event.target.files && event.target.files.length) {
+        this.imagen = event.target.files[0];
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          if (e.target !== null) {
+            this.pokemon.image = e.target.result as string;
+          }
+        };
+        if (this.imagen !== null) {
+          reader.readAsDataURL(this.imagen);
+        }
+      }
     }
-  }
+
+
+    //manera  vieja de manejar las fotos 
+  // onFileChange(event: any) {
+  //   if (event.target.files && event.target.files.length) {
+  //     this.imagen = event.target.files[0];
+  //   }
+  // }
 
   ngOnInit() {
     this.ownerService.apiOwnerGet$Json().subscribe(owners => {

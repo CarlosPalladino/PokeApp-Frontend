@@ -1,20 +1,18 @@
-<div *ngIf="owner">
+<div *ngIf="owner" class="detail">
     <article class="details">
-        <img class="img"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4PbsV0TmgeWGxwtn_bTy6BlGCq5Fxf6ZXFB3SaOy1&s" alt="Placeholder: Thumbnail">
+        <img class="img"
+            src="https://cdn0.iconfinder.com/data/icons/avatar-profile/452/pikachu_pokemon_profile_avatar_people-512.png"
+            alt="">
         <p class="card-text"> Nombre</p>
         <p class="card-texts"> {{owner.firstName}}</p>
         <p class="card-text"> TIpo</p>
         <p class="card-texts">{{owner.gym}}</p>
         <p class="card-text"> debilidad</p>
         <p class="card-texts">{{owner.lastName}}</p>
-<section id="buttons">
-    <button (click)="eliminarOwner()"   
-      class="btn btn-danger">Eliminar</button>
-      <a [routerLink]="['/create-owner', owner.id]"
-       class="btn btn-warning"> Modificar</a>
-
-    
-</section>
+        <section id="buttons">
+            <button (click)="eliminarOwner()" class="btn btn-danger">Eliminar</button>
+            <a [routerLink]="['/create-owner', owner.id]" class="btn btn-warning"> Modificar</a>
+        </section>
 
     </article>
 

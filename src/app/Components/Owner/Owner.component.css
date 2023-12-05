@@ -1,12 +1,14 @@
+.owner{
+    background-image: url('../../Images/FotoFondo.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .card-body{
-    text-align: center;
-    width: 50%;
-    margin: auto;}
+   
+    background-color: transparent;
+}
 .card-text {
-    -webkit-text-decoration: dotted;
-    text-decoration: dotted;
-    background-color: gray !important;
-    text-decoration: dotted;
+
     border-radius: 5px;
     
 }

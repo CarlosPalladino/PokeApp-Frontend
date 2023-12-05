@@ -1,15 +1,11 @@
 <body>
-    <form class="form" (ngSubmit)="onSubmit()">
-      <label for="firstName">Nombre:</label>
-      <input type="text" id="firstName" name="firstName"
-       [(ngModel)]="owner.firstName" required><br><br>
-      <label for="lastName">Apellido:</label>
-      <input type="text" id="lastName" name="lastName" 
-      [(ngModel)]="owner.lastName" required><br><br>
-      <label for="gym">Gimnasio:</label>
-      <input type="text" id="gym" name="gym"
-       [(ngModel)]="owner.gym" required><br><br>
-      <input type="submit" value="Enviar">
-    </form>
-  </body>
-  
+  <form class="form" (ngSubmit)="onSubmit()">
+    <label for="firstName">Nombre:</label>
+    <input type="text" id="firstName" name="firstName" [(ngModel)]="owner.firstName" required><br><br>
+    <label for="lastName">Apellido:</label>
+    <input type="text" id="lastName" name="lastName" [(ngModel)]="owner.lastName" required><br><br>
+    <label for="gym">Gimnasio:</label>
+    <input type="text" id="gym" name="gym" [(ngModel)]="owner.gym" required><br><br>
+    <input type="submit" class="btn btn-danger" value="Enviar">
+  </form>
+</body>

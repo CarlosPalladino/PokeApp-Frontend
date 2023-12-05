@@ -1,30 +1,36 @@
-.img    {
-    width: 50%;
+.detail {
+    background-image: url('../../Images/FotoFondo.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img {
+    width: 14%;
     height: 40%;
     border-radius: 60px;
 }
 .details {
-    margin-top: 200px !important;
-    width: 40%;
     margin: auto;
     text-align: center;
-    border-radius: 20px;
-    background-color:#cccccc ;
     margin-top: 50px;
     
 
 }
 .card-text {
     text-decoration: dotted;
-    background-color: rgb(182, 152, 152);
     text-decoration: dotted;
     margin: auto;
-    width: 50% !important;
+    font-weight: bold;
+    font-size: 24px;
     border-radius: 5px;
     margin-top: 30px;
 }
-
+#buttons{
+    margin-top: 2rem;
+    padding: 2rem;
+}
 .card-texts {
+    font-weight: bold;
+    font-size: 22px;
     text-decoration: dotted;
     border-radius: 5px;
     font-size: larger ;

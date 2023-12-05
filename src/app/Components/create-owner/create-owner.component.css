@@ -4,12 +4,16 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    background-image: url('../../Images/FotoFondo.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
   }
   .form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: gray !important;
+    background-color: transparent;
     padding: 20px;
     border-radius: 10px;
     height: auto;
@@ -18,6 +22,7 @@ body {
   .form label {
     font-weight: bold;
     margin-top: 10px;
+    font-weight: bold;
   }
   .form input[type="text"],
   .form input[type="date"],

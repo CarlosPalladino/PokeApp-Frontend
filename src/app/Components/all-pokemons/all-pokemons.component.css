@@ -1,39 +1,79 @@
+/* arriba */
+body {}
+
+.card {
+  background-color: transparent;
+}
+
+/* lista */
+.list {
+
+  background-image: url('../../Images/FotoFondo.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.list h3 {
+  text-align: center;
+  color: white;
+}
+
+#txt {
+  color: white;
+  font-size: 200px;
+
+}
+
 #Menu {
-    margin: 5px auto;
-    padding: 1rem;
-    justify-content: space-evenly;
-    flex-direction: row;
-    font-size: larger;
-    align-items: center; /* Alinea los elementos verticalmente en el centro */
-    text-align: center;
-  }
+  /* background-image: url('../../Images/FotoFondo.jpeg'); */
+
+
+  margin: 5px auto;
+  padding: 1rem;
+  justify-content: space-evenly;
+  flex-direction: row;
+  font-size: larger;
+  align-items: center;
+  /* Alinea los elementos verticalmente en el centro */
+  text-align: center;
+}
+
+#Menu select,
+#Menu button {
+  margin: 0 5px;
+  /* Reduce el margen a los lados de cada select y botón para acercarlos */
+  padding: 5px 10px;
+  /* Aumenta el tamaño de los select y botones al agregar relleno alrededor del texto */
+}
+
+.img {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+}
+
+.details {
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+
+.card-text {
+  text-decoration: dotted;
+  text-decoration: dotted;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card-texts {
+  font-size: 24px;
+
+  text-decoration: dotted;
+  border-radius: 5px;
+}
+.btn-group {
+  display: flex;
   
-  #Menu select, #Menu button {
-    margin: 0 5px; /* Reduce el margen a los lados de cada select y botón para acercarlos */
-    padding: 5px 10px; /* Aumenta el tamaño de los select y botones al agregar relleno alrededor del texto */
-  }
-  
-  .img {
-    width: 300px;
-    height: 300px;
-    margin: auto;
-  }
-  
-  .details {
-    text-align: center;
-    width: 50%;
-    margin: auto;
-  }
-  
-  .card-text {
-    text-decoration: dotted;
-    background-color: gray !important;
-    text-decoration: dotted;
-    border-radius: 5px;
-  }
-  
-  .card-texts {
-    text-decoration: dotted;
-    border-radius: 5px;
-  }
-  
+  justify-content: center;
+}

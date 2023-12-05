@@ -19,43 +19,39 @@
 
 </head>
 
-<body>
+<body id="fondo">
 
-  <main>
+  <main class="fondo">
 
-    <section class="py-5 text-center container">
-      <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-          <h3 class="fw-light">Este proyecto es el 
-            frontend hecho que consume la api : . .. . </h3>
+    <div class="album py-5 bg-body-tertiary list">
 
-        </div>
-      </div>
-    </section>
-    <section id="Menu">
-      <label for="tipo">Tipo:</label>
-      <select id="tipo" name="tipo" [(ngModel)]="tipo" (change)="cambiarTipo($event)">
-        <option value="category">Category</option>
-        <option value="owner">Owner</option>
-      </select>
-    
-      <!-- Selector para mostrar los elementos correspondientes -->
-      <label for="elementoId">Elemento:</label>
-      <select id="elementoId" name="elementoId" [(ngModel)]="elementoSeleccionado" required>
-        <option *ngFor="let elemento of elementos" [value]="tipo === 'owner' ? (elemento.firstName + ' ' + elemento.lastName) : elemento.name">
-          {{tipo === 'owner' ? (elemento.firstName + ' ' + elemento.lastName) : elemento.name}}
-        </option>     
-      </select>
-       <button (click)="buscarPokemon()" class="btn btn-outline-primary">Buscar Pokémon</button>
-       <button (click)="resetearVistas()" class="btn btn-outline-secondary">Resetear Vistas</button>
+
+      <h3>Este proyecto consume Api que realicé preaviamente en PokemonReviewApp </h3>
+      <section id="Menu">
+
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" name="tipo" [(ngModel)]="tipo" (change)="cambiarTipo($event)">
+          <option value="category">Category</option>
+          <option value="owner">Owner</option>
+        </select>
+
+        <!-- Selector para mostrar los elementos correspondientes -->
+        <label for="elementoId">Elemento:</label>
+        <select id="elementoId" name="elementoId" [(ngModel)]="elementoSeleccionado" required>
+          <option *ngFor="let elemento of elementos"
+            [value]="tipo === 'owner' ? (elemento.firstName + ' ' + elemento.lastName) : elemento.name">
+            {{tipo === 'owner' ? (elemento.firstName + ' ' + elemento.lastName) : elemento.name}}
+          </option>
+        </select>
+        <button (click)="buscarPokemon()" class="btn btn-danger">Buscar Pokémon</button>
+        <button (click)="resetearVistas()" class="btn btn-warning">Resetear Vistas</button>
       </section>
-    
-    <div class="album py-5 bg-body-tertiary">
+
       <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 ">
           <div class="col" *ngFor="let pokemon of pokemons">
             <div class="card shadow-sm">
-              <div class="card-body">
+              <div class="card-body card">
                 <img [src]="pokemon.image" class="img" alt="{{ pokemon.name }}">
                 <section class="details">
 
@@ -70,16 +66,15 @@
 
                 </section>
 
-                <div class="d-flex justify-content-between align-items-center">
+                <div>
                   <div class="btn-group">
-                    <a [routerLink]="['/details-pokemon', pokemon.id]"
-                      class="btn btn-sm btn-outline-primary">detalle</a>
+                    <a [routerLink]="['/details-pokemon', pokemon.id]" class="btn btn-sm btn-warning btn">detalle</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-       
+
         </div>
       </div>
     </div>

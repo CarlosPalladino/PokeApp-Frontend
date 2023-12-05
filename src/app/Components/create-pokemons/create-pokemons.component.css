@@ -4,12 +4,16 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  background-image: url('../../Images/FotoFondo.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: gray !important;
+  background-color:transparent;
   padding: 20px;
   border-radius: 10px;
   /* Reduce la altura a auto para que el formulario solo sea tan alto como su contenido */
@@ -19,16 +23,14 @@ body {
 }
 .form label {
   font-weight: bold;
-  margin-top: 10px;
+  margin-top: 5px;
+  /* color: ; */
 }
 .form input[type="text"],
 .form input[type="date"],
 .form select {
-  width: 100%;
+  width: 50%;
   padding: 10px;
-  margin-top: 5px;
-  /* Agrega un borde redondeado a los campos de entrada */
-  border-radius: 5px;
 }
 .form input[type="submit"] {
   margin-top: 20px;

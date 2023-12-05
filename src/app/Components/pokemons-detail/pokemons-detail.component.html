@@ -1,7 +1,10 @@
 <div *ngIf="pokemon">
     <article class="details">
 
-        <img [src]="pokemon.image" class="img" alt="{{ pokemon.name }}">
+        <article id="img-container">
+            <img [src]="pokemon.image" class="img" alt="{{ pokemon.name }}">
+
+        </article>
         <p class="card-text"> Nombre</p>
         <p class="card-texts"> {{pokemon.name}}</p>
         <p class="card-text"> TIpo</p>

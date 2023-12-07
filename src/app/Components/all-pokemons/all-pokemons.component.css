@@ -7,10 +7,10 @@ body {}
 
 /* lista */
 .list {
-
-  background-image: url('../../Images/FotoFondo.jpeg');
-  background-repeat: no-repeat;
-  background-size: cover;
+background-color: #3c5aa6 !important ;
+  /* background-image: url('../../Images/FotoFondo.jpeg'); */
+  /* background-repeat: no-repeat;
+  background-size: cover; */
 }
 
 .list h3 {
@@ -37,9 +37,14 @@ body {}
   /* Alinea los elementos verticalmente en el centro */
   text-align: center;
 }
-
+#Menu 
+label{
+  font-weight: bold;
+  font-size: large;
+}
 #Menu select,
 #Menu button {
+  border: solid 1px ;
   margin: 0 5px;
   /* Reduce el margen a los lados de cada select y botón para acercarlos */
   padding: 5px 10px;
@@ -76,4 +81,38 @@ body {}
   display: flex;
   
   justify-content: center;
+}
+@media (max-width: 768px) {
+  .img {
+    width: 100%;
+    height: auto;
+  }
+
+  .list {
+    background-size: 100% auto;
+  }
+
+
+  #Menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+  }
+
+  #Menu 
+  label{
+    display: none;
+  }
+  #Menu 
+select{
+  width: 100%;
+
+  margin: 2px;
+  border: solid 1px ;
+}
+
+  
 }

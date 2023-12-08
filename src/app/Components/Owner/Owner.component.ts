@@ -5,8 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-owner',
-  templateUrl: './owner.component.html',
-  styleUrls: ['./owner.component.css']
+  templateUrl: './Owner.component.html',
+  styleUrls: ['./Owner.component.css']
 })
 export class OwnerComponent implements OnInit {
   owners: OwnerDto[] | null = null; // Cambiado a un array de OwnerDto

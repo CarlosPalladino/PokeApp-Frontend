@@ -17,7 +17,7 @@ import { StrictHttpResponse } from '../../api/strict-http-response';
   styleUrls: ['../../Components/all-pokemons/all-pokemons.component.css']
 })
 export class AllPokemonsComponent implements OnInit {
-
+  errorMessage: string = '';
   title = 'Banck-Api-Frontend';
   public pokemons: PokemonDto[] = [];
   public owners: OwnerDto[] = [];
@@ -71,9 +71,11 @@ export class AllPokemonsComponent implements OnInit {
       this.cdr.detectChanges();
     }
     buscarPokemon() {
-      console.log('Botón Buscar Pokémon presionado');
-      console.log('Tipo seleccionado:', this.tipo);
-      console.log('Elemento seleccionado:', this.elementoSeleccionado);
+      if (!this.elementoSeleccionado) {
+        this.errorMessage = 'Por favor, selecciona un propietario o una categoría';
+        setTimeout(() => this.errorMessage = '', 5000)
+        return;
+      }
     
       if (this.tipo === 'owner') {
         console.log('Buscando propietario por Nombre...');

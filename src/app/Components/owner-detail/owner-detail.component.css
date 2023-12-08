@@ -1,12 +1,17 @@
 .detail {
-    background-image: url('../../Images/FotoFondo.jpeg');
+    background-color: #3c5aa6 !important;
+
+    /* background-image: url('../../Images/FotoFondo.jpeg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
 }
 .img {
     width: 14%;
     height: 40%;
     border-radius: 60px;
+}
+.card{
+    background: tras;
 }
 .details {
     margin: auto;

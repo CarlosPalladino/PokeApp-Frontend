@@ -26,7 +26,7 @@
     <div class="album py-5 bg-body-tertiary list">
 
 
-      <h3>Este proyecto consume Api que realicé preaviamente en PokemonReviewApp </h3>
+      <!-- <h3>Este proyecto consume Api que realicé preaviamente en PokemonReviewApp </h3> -->
       <section id="Menu">
 
         <label for="tipo">Tipo:</label>
@@ -52,6 +52,9 @@
           <div class="col" *ngFor="let pokemon of pokemons">
             <div class="card shadow-sm">
               <div class="card-body card">
+                <div *ngIf="errorMessage" 
+                class="alert alert-danger">{{ errorMessage }}</div>
+
                 <img [src]="pokemon.image" class="img" alt="{{ pokemon.name }}">
                 <section class="details">
 

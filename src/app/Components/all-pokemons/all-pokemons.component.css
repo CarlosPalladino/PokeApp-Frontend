@@ -1,5 +1,4 @@
 /* arriba */
-body {}
 
 .card {
   background-color: transparent;
@@ -7,46 +6,41 @@ body {}
 
 /* lista */
 .list {
-background-color: #3c5aa6 !important ;
-  /* background-image: url('../../Images/FotoFondo.jpeg'); */
-  /* background-repeat: no-repeat;
-  background-size: cover; */
+  background-color: #3c5aa6 !important;
+
 }
 
 .list h3 {
   text-align: center;
-  color: white;
+  color: whitesmoke;
 }
 
 #txt {
-  color: white;
+  color: whitesmoke;
   font-size: 200px;
 
 }
 
 #Menu {
-  /* background-image: url('../../Images/FotoFondo.jpeg'); */
-
-
   margin: 5px auto;
   padding: 1rem;
   justify-content: space-evenly;
   flex-direction: row;
   font-size: larger;
   align-items: center;
-  /* Alinea los elementos verticalmente en el centro */
   text-align: center;
 }
-#Menu 
-label{
+
+#Menu label {
   font-weight: bold;
   font-size: large;
+  color: whitesmoke;
 }
+
 #Menu select,
 #Menu button {
-  border: solid 1px ;
+  border: solid 1px;
   margin: 0 5px;
-  /* Reduce el margen a los lados de cada select y botón para acercarlos */
   padding: 5px 10px;
   /* Aumenta el tamaño de los select y botones al agregar relleno alrededor del texto */
 }
@@ -67,21 +61,23 @@ label{
   text-decoration: dotted;
   text-decoration: dotted;
   border-radius: 5px;
+  color: whitesmoke;
   font-size: 20px;
   font-weight: bold;
 }
 
 .card-texts {
   font-size: 24px;
-
   text-decoration: dotted;
   border-radius: 5px;
 }
+
 .btn-group {
   display: flex;
-  
+
   justify-content: center;
 }
+
 @media (max-width: 768px) {
   .img {
     width: 100%;
@@ -91,7 +87,9 @@ label{
   .list {
     background-size: 100% auto;
   }
-
+.card-texts {
+font-size: 21px;
+}
 
   #Menu {
     display: flex;
@@ -102,17 +100,16 @@ label{
     margin: auto;
   }
 
-  #Menu 
-  label{
+  #Menu label {
     display: none;
   }
-  #Menu 
-select{
-  width: 100%;
 
-  margin: 2px;
-  border: solid 1px ;
-}
+  #Menu select {
+    width: 100%;
 
-  
+    margin: 2px;
+    border: solid 1px;
+  }
+
+
 }

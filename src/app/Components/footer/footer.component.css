@@ -1,22 +1,22 @@
-.btn{
+.btn {
     width: 100%;
     height: 100%;
 }
-.btn
-h5{
+
+.btn h5 {
     text-align: center;
-  font-size: 22px;
-  color: white;
+    font-size: 22px;
+    color: white;
 }
-  
+
 #btns a {
     display: inline-block;
     margin: 10px;
     color: white;
-    font-size: 2em; /* Ajusta este valor a tus necesidades */
-  }
-  
-  #btns a:hover {
+    font-size: 2em;
+    /* Ajusta este valor a tus necesidades */
+}
+
+#btns a:hover {
     color: #ccc;
-  }
-  
+}

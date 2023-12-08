@@ -1,9 +1,7 @@
 <div *ngIf="pokemon">
-    <article class="details">
-
+    <article class="details" >
         <article id="img-container">
             <img [src]="pokemon.image" class="img" alt="{{ pokemon.name }}">
-
         </article>
         <p class="card-text"> Nombre</p>
         <p class="card-texts"> {{pokemon.name}}</p>
@@ -13,13 +11,10 @@
         <p class="card-text"> debilidad</p>
         
         <p class="card-texts">{{pokemon.debilidad}}</p>
-
         <article id="buttons">
             <button (click)="eliminarPokemon()" 
             class="btn btn-danger">Eliminar</button>
             <a [routerLink]="['/create-pokemons', pokemon.id]" class="btn btn-warning"> Modificar</a>
-
         </article>
-
     </article>
 </div>

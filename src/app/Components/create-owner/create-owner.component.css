@@ -4,13 +4,12 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-image: url('../../Images/FotoFondo.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-
+    background-color: #3c5aa6 !important;
   }
   .form {
     display: flex;
+    border: solid 1px ;
+  width: 80%;
     flex-direction: column;
     align-items: center;
     background-color: transparent;
@@ -21,13 +20,15 @@ body {
   }
   .form label {
     font-weight: bold;
+    color:whitesmoke;
     margin-top: 10px;
     font-weight: bold;
   }
   .form input[type="text"],
   .form input[type="date"],
   .form select {
-    width: 100%;
+    width: 50%;
+    
     padding: 10px;
     margin-top: 5px;
     border-radius: 5px;
@@ -36,16 +37,32 @@ body {
     margin-top: 20px;
     padding: 10px 20px;
   }
-  @media (max-width: 600px) {
+  @media (min-width: 320px) {
+    .form {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .form input[type="text"] {
+      width: 60%; /* Ajusta el ancho del input a un valor mayor */
+    }
+    .form label {
+      text-align: left; /* Alinea los labels a la izquierda */
+    }
+  }
+  
+  @media (min-width: 728px) {
     .form {
       width: 80%;
       box-sizing: border-box;
+      border: solid 0.5px; 
+    }
+    .form input[type="text"] {
+      width: 80%; /* Ajusta el ancho del input a un valor mayor */
+    }
+    .form label {
+      text-align: left; /* Alinea los labels a la izquierda */
     }
   }
-  @media (min-width: 601px) {
-    .form {
-      width: 50%;
-      box-sizing: border-box;
-    }
-  }
+  
+  
   

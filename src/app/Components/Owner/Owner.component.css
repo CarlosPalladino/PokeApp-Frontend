@@ -1,32 +1,34 @@
-.owner{
-    background-image: url('../../Images/FotoFondo.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.card-body{
-   
-    background-color: transparent;
-}
-.card-text {
+.owner {
+    background-color: #3c5aa6 !important;
+    margin-top: 2rem;
 
-    border-radius: 5px;
-    
 }
+
+.card {
+    text-align: center;
+    background-color: transparent !important;
+}
+
+.card-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card-texts{
+    font-size: 22px;
+    color: white !important;
+}
+
 .img {
     width: 50%;
     height: 40%;
     border-radius: 60px;
-    display: block; /* Asegúrate de que la imagen se muestre como un bloque */
-    margin: auto; /* Centra la imagen horizontalmente */
-    margin-top: 20px; /* Agrega un margen superior */
-  }
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+}
 .card-texts {
     text-decoration: dotted;
     border-radius: 5px;
-
 }
-.btn-group button {
-    margin-right: 10px; /* Agrega un margen a la derecha de cada botón para separarlos */
-    padding: 10px 20px; /* Aumenta el tamaño de los botones */
-  }
-  
+

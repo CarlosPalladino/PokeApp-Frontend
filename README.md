@@ -18,8 +18,6 @@ Este proyecto utiliza el paquete **ngopenapi** para facilitar la integración co
 1. Clona este repositorio: `git clone https://github.com/tu-usuario/Banck-APi-Frontend.git`
 2. Instala las dependencias: `npm install`
 3. Configura la URL de la API en el archivo de configuración **api-configuration**.
-4.
-5.
 
 6. ## Uso
 > [!WARNING]

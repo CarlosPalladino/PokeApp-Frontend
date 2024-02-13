@@ -11,12 +11,20 @@
 
 #btns a {
     display: inline-block;
-    margin: 10px;
+    margin: 20px;
     color: white;
-    font-size: 2em;
-    /* Ajusta este valor a tus necesidades */
+    font-size: 2rem;
 }
 
 #btns a:hover {
     color: #ccc;
+}
+@media (min-width: 768px) {
+    
+#btns a {
+    display: inline-block;
+    margin: 20px;
+    color: white;
+    font-size: 3rem;
+}
 }

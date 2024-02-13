@@ -23,25 +23,3 @@ export class AppComponent {
 
   }
 
-  // constructor(private http: HttpClient) { }
-  // pokemons: Pokemons[] = [];
-
-  // GetPokemons(id: number): Observable<Pokemons[]> {
-  //   const url = `${this.endpoint}/${id}`;
-  //   return this.http.get<Pokemons[]>(url);
-  // }
-
-
-
-
-  // GetPokemons(id: number) {
-  //   const url = `${this.endpoint}/${id}`;
-  //   this.http.get<Pokemons[]>(url).subscribe(data => {
-  //     this.pokemons = data;
-  //   });
-
-
-
-  // }
-
-

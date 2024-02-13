@@ -1,12 +1,8 @@
 .detail {
     background-color: #3c5aa6 !important;
-
-    /* background-image: url('../../Images/FotoFondo.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover; */
 }
 .img {
-    width: 14%;
+    width: 24%;
     height: 40%;
     border-radius: 60px;
 }
@@ -24,6 +20,7 @@
     text-decoration: dotted;
     text-decoration: dotted;
     margin: auto;
+    color:whitesmoke;
     font-weight: bold;
     font-size: 24px;
     border-radius: 5px;
@@ -42,3 +39,53 @@
     padding: 2px;
 
 }
+@media (max-width: 768px) {
+    .img {
+        margin-top: 4rem;
+      width: 40%;
+      height: auto;
+    }
+  
+    .details {
+      margin-top: 20px;
+    }
+  
+    .card-text {
+      font-size: 18px;
+      margin-top: 15px;
+    }
+  
+    #buttons {
+      margin-top: 1rem;
+      padding: 1rem;
+    }
+  
+    .card-texts {
+      font-size: 18px;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .img {
+        margin-top: 6rem;
+      width: 80%;
+      height: auto;
+    }
+  
+    .details {
+      margin-top: 10px;
+    }
+  
+    .card-text {
+      margin-top: 10px;
+    }
+  
+    #buttons {
+      margin-top: 0.5rem;
+      padding: 0.5rem;
+    }
+  
+    .card-texts {
+    }
+  }
+  

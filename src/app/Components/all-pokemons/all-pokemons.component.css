@@ -1,10 +1,8 @@
-/* arriba */
 
 .card {
   background-color: transparent;
 }
 
-/* lista */
 .list {
   background-color: #3c5aa6 !important;
 
@@ -22,27 +20,34 @@
 }
 
 #Menu {
+  display: flex;
   margin: 5px auto;
   padding: 1rem;
   justify-content: space-evenly;
-  flex-direction: row;
+  flex-direction: column;
   font-size: larger;
   align-items: center;
   text-align: center;
+  width: 100%;
 }
 
+#btn button {
+  border: none;
+  margin-top: 20px;
+  /* padding: 1rem ; */
+}
 #Menu label {
   font-weight: bold;
   font-size: large;
   color: whitesmoke;
 }
 
+
 #Menu select,
 #Menu button {
   border: solid 1px;
   margin: 0 5px;
   padding: 5px 10px;
-  /* Aumenta el tamaño de los select y botones al agregar relleno alrededor del texto */
 }
 
 .img {
@@ -70,6 +75,7 @@
   font-size: 24px;
   text-decoration: dotted;
   border-radius: 5px;
+  font-weight: bold;
 }
 
 .btn-group {
@@ -78,7 +84,7 @@
   justify-content: center;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .img {
     width: 100%;
     height: auto;
@@ -87,9 +93,10 @@
   .list {
     background-size: 100% auto;
   }
-.card-texts {
-font-size: 21px;
-}
+
+  .card-texts {
+    font-size: 19px;
+  }
 
   #Menu {
     display: flex;
@@ -100,16 +107,16 @@ font-size: 21px;
     margin: auto;
   }
 
-  #Menu label {
-    display: none;
-  }
-
   #Menu select {
     width: 100%;
-
     margin: 2px;
     border: solid 1px;
   }
 
+  #btn {
+    display: flex;
+    /* padding: 2px; */
+    border: none;
+  }
 
 }

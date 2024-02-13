@@ -9,7 +9,7 @@
         <p class="card-texts">{{owner.firstName}}</p>
         <p class="card-text">Apellido</p>
         <p class="card-texts">{{owner.gym}}</p>
-        <article >
+        <article id="btns">
           <button type="button" class="btn btn-danger">Eliminar</button>
           <button [routerLink]="['/owner-detail', owner.id]" class="btn btn-warning">Ver detalles</button>
         </article>

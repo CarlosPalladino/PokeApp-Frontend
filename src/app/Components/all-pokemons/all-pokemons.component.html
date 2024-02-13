@@ -35,7 +35,6 @@
           <option value="owner">Owner</option>
         </select>
 
-        <!-- Selector para mostrar los elementos correspondientes -->
         <label for="elementoId">Elemento:</label>
         <select id="elementoId" name="elementoId" [(ngModel)]="elementoSeleccionado" required>
           <option *ngFor="let elemento of elementos"
@@ -43,8 +42,11 @@
             {{tipo === 'owner' ? (elemento.firstName + ' ' + elemento.lastName) : elemento.name}}
           </option>
         </select>
-        <button (click)="buscarPokemon()" class="btn btn-danger">Buscar Pokémon</button>
-        <button (click)="resetearVistas()" class="btn btn-warning">Resetear Vistas</button>
+        <article id="btn">
+
+          <button (click)="buscarPokemon()" class="btn btn-danger">Buscar Pokémon</button>
+          <button (click)="resetearVistas()" class="btn btn-warning">Resetear Vistas</button>
+        </article>
       </section>
 
       <div class="container">

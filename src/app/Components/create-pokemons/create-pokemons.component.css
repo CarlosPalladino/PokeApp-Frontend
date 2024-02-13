@@ -1,17 +1,11 @@
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 113vh;
   margin: 0;
   background-color: #3c5aa6 !important;
-
 }
 
 .form {
   display: flex;
-  border: solid 1px;
-  width: 50%;
+  margin: auto;
   flex-direction: column;
   align-items: center;
   background-color: transparent;
@@ -30,8 +24,10 @@ body {
 .form input[type="text"],
 .form input[type="date"],
 .form select {
-  width: 50%;
+  width: 100%; 
   padding: 10px;
+  border: none;
+  border-radius: 5px;
 }
 
 .form input[type="submit"] {
@@ -39,46 +35,24 @@ body {
   padding: 10px 20px;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .form {
-    width: 50%;
-    box-sizing: border-box;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid #ccc;
   }
 
   .form label {
     text-align: left;
-    /* Alinea los labels a la izquierda */
   }
 
   .form input[type="text"],
   .form input[type="date"],
   .form select {
     width: 80%;
-    /* Ajusta el ancho del input a un valor mayor */
-  }
-}
-
-@media (max-width: 320px) {
-  .form {
-    width: 80%;
-    box-sizing: border-box;
-  }
-
-  .form label {
-    text-align: left;
-    /* Alinea los labels a la izquierda */
-  }
-
-  .form input[type="text"],
-  .form input[type="date"],
-  .form select {
-    width: 100%;
-    /* Ajusta el ancho del input a un valor mayor */
-  }
-
-  .form input[type="file"] {
-    width: 100%;
+    border: 1px solid red;
   }
 
 
 }
+

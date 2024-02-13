@@ -10,7 +10,7 @@ import { CreatePokemonsComponent } from './Components/create-pokemons/create-pok
 import { HeaderComponent } from './Components/Header/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './Components/footer/footer.component';
-import { OwnerComponent } from './Components/owner/owner.component';
+import { OwnerComponent } from './Components/Owner/Owner.component';
 import { OwnerDetailComponent } from './Components/owner-detail/owner-detail.component';
 import { CreateOwnerComponent } from './Components/create-owner/create-owner.component';
 

@@ -6,15 +6,19 @@
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #3c5aa6 !important;
+  height: 85vh;
 }
 
 #img-container {
-  width: 30%;
+  width: 100%;
   margin: auto;
+  margin-top: 2rem;
 }
 
 .img {
   width: 100%;
+  padding: 1rem;
+
 }
 
 .details .bd-placeholder-img {
@@ -32,12 +36,18 @@
 
 .card-texts {
   font-size: bold;
-color: whitesmoke;
+  color: whitesmoke;
   font-size: 24px;
   margin-bottom: 15px;
 }
-/* Estilos para pantallas con un ancho de 768px o más */
-@media (max-width: 768px) {
+
+#buttons {
+  display: flex;
+  margin: 4px;
+  padding: 4px;
+}
+
+@media (min-width: 768px) {
   .details {
     display: flex;
     flex-direction: column;
@@ -73,22 +83,55 @@ color: whitesmoke;
     font-size: 24px;
     margin-bottom: 15px;
   }
-}
 
-/* Estilos para pantallas con un ancho de 320px o más */
-@media (max-width: 320px) {
-  .details {
-    margin-top: 3rem;
-
+  #buttons {
+    display: flex;
+    margin: 4px;
+    padding: 4px;
   }
 
+  #buttons a,
+  button {
+    margin: 2rem;
+  }
+}
 
-  #img-container {
-    width: 100%;
-    margin: auto;
+@media(min-width: 1024px) {
+  .details {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .details article {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .details article p {
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  #buttons {
+    display: flex;
+    flex-direction: row;
+
   }
 
   .img {
-    width: 100%;
+    width: 50%;
   }
+  
+  .texto {
+    border:   2px  2px 2px 2px solid red;
+    display: grid;
+    grid-template-columns: auto auto; 
+    gap: 10px; 
+    align-items: center; 
+    text-align: left; 
+  }
+  
 }

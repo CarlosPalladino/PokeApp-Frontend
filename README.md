@@ -16,7 +16,7 @@ Utilicé el paquete **ngopenapi** para facilitar la integración con la API. **n
 1. Clona este repositorio: `git clone https://github.com/tu-usuario/Banck-APi-Frontend.git`
 2. Instala las dependencias: `npm install`
 3. Configura la URL de la API en el archivo de configuración **api-configuration**.
-4. 
+
 > [!IMPORTANT]  
 > Este es la parte front del proyecto  : https://github.com/CarlosPalladino/PokemonReviewAppp
 
